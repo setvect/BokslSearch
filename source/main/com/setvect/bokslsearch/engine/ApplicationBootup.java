@@ -10,8 +10,8 @@ import com.setvect.common.log.LogPrinter;
  * 어플리케이션에 기본적인 설정값, 로그설정등을 해준다. <br>
  */
 public class ApplicationBootup {
-	private static final String CONFIG_LOG4J_XML = "/config/log4j.xml";
-	private static final String CONFIG_CONFIG_PROPERTIES = "/conf/config.properties";
+	private static final String CONFIG_LOG4J_XML = "/com/setvect/bokslsearch/engine/config/log4j.xml";
+	private static final String CONFIG_CONFIG_PROPERTIES = "/conf/search.config.properties";
 
 	/** 초기화 여부 */
 	private static boolean initialize = false;
@@ -20,7 +20,8 @@ public class ApplicationBootup {
 	}
 
 	/**
-	 * config propertity, log4j, spring, hibernate 설정 초기화
+	 * com.setvect.bokslsearch.engine.config propertity, log4j, spring,
+	 * hibernate 설정 초기화
 	 * 
 	 * @param appHomeDir
 	 *            프로그램 홈 디렉토리
