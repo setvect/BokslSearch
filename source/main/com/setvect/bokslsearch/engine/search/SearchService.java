@@ -72,7 +72,7 @@ public class SearchService {
 			ScoreDoc[] hits = topDocs.scoreDocs;
 			SearchResult result = new SearchResult();
 			result.setTotalHits(topDocs.totalHits);
-			
+
 			for (int i = 0; i < hits.length; i++) {
 				int docId = hits[i].doc;
 				Document d = searcher.doc(docId);
@@ -117,9 +117,11 @@ public class SearchService {
 		IndexSearcher searcher = new IndexSearcher(multiReader);
 		try {
 			searcher.search(q, collector);
-			ScoreDoc[] hits = collector.topDocs().scoreDocs;
 			SearchResult result = new SearchResult();
-
+			TopDocs topDocs = collector.topDocs();
+			ScoreDoc[] hits = topDocs.scoreDocs;
+			result.setTotalHits(topDocs.totalHits);
+			
 			for (int i = 0; i < hits.length; i++) {
 				int docId = hits[i].doc;
 				Document d = searcher.doc(docId);

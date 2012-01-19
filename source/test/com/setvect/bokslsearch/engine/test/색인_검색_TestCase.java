@@ -96,7 +96,7 @@ public class 색인_검색_TestCase extends TestInit {
 		query.setReturnRange(0, 1);
 		result = searcher.search(query);
 		Assert.assertThat(result.getTotalHits(), is(2));
-		Assert.assertThat(result.getCurrentHits(), is(2));
+		Assert.assertThat(result.getCurrentHits(), is(1));
 		Assert.assertThat(result.getValue(0, "TITLE"), is("Boys be ambitious"));
 	}
 
