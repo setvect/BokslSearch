@@ -1,0 +1,182 @@
+2012-01-18 11:14:34,804 INFO  [main] com.setvect.bokslsearch.engine.ApplicationBootup.bootUp(ApplicationBootup.java:50) | Log Manager Initialized
+2012-01-18 11:14:35,143 INFO  [main] com.setvect.bokslsearch.engine.ApplicationBootup.bootUp(ApplicationBootup.java:55) | Spring Initialized
+2012-01-18 11:14:35,143 INFO  [main] com.setvect.bokslsearch.engine.ApplicationBootup.bootUp(ApplicationBootup.java:57) | Started...
+2012-01-18 13:34:35,884 INFO  [main] com.setvect.bokslsearch.engine.ApplicationBootup.bootUp(ApplicationBootup.java:53) | Log Manager Initialized
+2012-01-18 13:34:36,419 INFO  [main] com.setvect.bokslsearch.engine.ApplicationBootup.bootUp(ApplicationBootup.java:58) | Spring Initialized
+2012-01-18 13:34:36,419 INFO  [main] com.setvect.bokslsearch.engine.ApplicationBootup.bootUp(ApplicationBootup.java:60) | Started...
+2012-01-18 14:58:55,815 INFO  [main] com.setvect.bokslsearch.engine.ApplicationBootup.bootUp(ApplicationBootup.java:53) | Log Manager Initialized
+2012-01-18 14:58:56,206 INFO  [main] com.setvect.bokslsearch.engine.ApplicationBootup.bootUp(ApplicationBootup.java:58) | Spring Initialized
+2012-01-18 14:58:56,206 INFO  [main] com.setvect.bokslsearch.engine.ApplicationBootup.bootUp(ApplicationBootup.java:60) | Started...
+2012-01-18 15:00:23,698 INFO  [main] com.setvect.bokslsearch.engine.ApplicationBootup.bootUp(ApplicationBootup.java:53) | Log Manager Initialized
+2012-01-18 15:00:24,067 INFO  [main] com.setvect.bokslsearch.engine.ApplicationBootup.bootUp(ApplicationBootup.java:58) | Spring Initialized
+2012-01-18 15:00:24,068 INFO  [main] com.setvect.bokslsearch.engine.ApplicationBootup.bootUp(ApplicationBootup.java:60) | Started...
+2012-01-18 15:01:45,724 INFO  [main] com.setvect.bokslsearch.engine.ApplicationBootup.bootUp(ApplicationBootup.java:53) | Log Manager Initialized
+2012-01-18 15:01:46,083 INFO  [main] com.setvect.bokslsearch.engine.ApplicationBootup.bootUp(ApplicationBootup.java:58) | Spring Initialized
+2012-01-18 15:01:46,084 INFO  [main] com.setvect.bokslsearch.engine.ApplicationBootup.bootUp(ApplicationBootup.java:60) | Started...
+2012-01-18 15:01:46,222 DEBUG [main] com.setvect.bokslsearch.engine.index.IndexService.index(IndexService.java:48) | Index: DocField [name=Boys be ambitious, value=null]
+2012-01-18 15:03:33,364 INFO  [main] com.setvect.bokslsearch.engine.ApplicationBootup.bootUp(ApplicationBootup.java:53) | Log Manager Initialized
+2012-01-18 15:03:33,730 INFO  [main] com.setvect.bokslsearch.engine.ApplicationBootup.bootUp(ApplicationBootup.java:58) | Spring Initialized
+2012-01-18 15:03:33,731 INFO  [main] com.setvect.bokslsearch.engine.ApplicationBootup.bootUp(ApplicationBootup.java:60) | Started...
+2012-01-18 15:03:33,855 DEBUG [main] com.setvect.bokslsearch.engine.index.IndexService.index(IndexService.java:49) | Index: DocField [name=TITLE, value=Boys be ambitious]
+2012-01-18 15:03:33,865 DEBUG [main] com.setvect.bokslsearch.engine.index.IndexService.index(IndexService.java:49) | Index: DocField [name=CONTENT, value=울라라라 메렁]
+2012-01-18 15:03:33,945 DEBUG [main] com.setvect.bokslsearch.engine.index.IndexService.index(IndexService.java:49) | Index: DocField [name=TITLE, value=애국가]
+2012-01-18 15:03:33,945 DEBUG [main] com.setvect.bokslsearch.engine.index.IndexService.index(IndexService.java:49) | Index: DocField [name=CONTENT, value=동해물과 백두산이 마르고 닳토록 하느님이 보우하사 우리나라 만세]
+2012-01-18 15:35:52,214 INFO  [main] com.setvect.bokslsearch.engine.ApplicationBootup.bootUp(ApplicationBootup.java:53) | Log Manager Initialized
+2012-01-18 15:35:52,910 INFO  [main] com.setvect.bokslsearch.engine.ApplicationBootup.bootUp(ApplicationBootup.java:58) | Spring Initialized
+2012-01-18 15:35:52,910 INFO  [main] com.setvect.bokslsearch.engine.ApplicationBootup.bootUp(ApplicationBootup.java:60) | Started...
+2012-01-18 15:35:53,184 DEBUG [main] com.setvect.bokslsearch.engine.index.IndexService.indexDocument(IndexService.java:51) | Index: DocField [name=TITLE, value=Boys be ambitious]
+2012-01-18 15:35:53,191 DEBUG [main] com.setvect.bokslsearch.engine.index.IndexService.indexDocument(IndexService.java:51) | Index: DocField [name=CONTENT, value=울라라라 메렁]
+2012-01-18 15:35:53,239 DEBUG [main] com.setvect.bokslsearch.engine.index.IndexService.indexDocument(IndexService.java:51) | Index: DocField [name=TITLE, value=애국가]
+2012-01-18 15:35:53,239 DEBUG [main] com.setvect.bokslsearch.engine.index.IndexService.indexDocument(IndexService.java:51) | Index: DocField [name=CONTENT, value=동해물과 백두산이 마르고 닳토록 하느님이 보우하사 우리나라 만세]
+2012-01-18 15:36:16,545 INFO  [main] com.setvect.bokslsearch.engine.ApplicationBootup.bootUp(ApplicationBootup.java:53) | Log Manager Initialized
+2012-01-18 15:36:16,907 INFO  [main] com.setvect.bokslsearch.engine.ApplicationBootup.bootUp(ApplicationBootup.java:58) | Spring Initialized
+2012-01-18 15:36:16,907 INFO  [main] com.setvect.bokslsearch.engine.ApplicationBootup.bootUp(ApplicationBootup.java:60) | Started...
+2012-01-18 15:36:17,028 DEBUG [main] com.setvect.bokslsearch.engine.index.IndexService.indexDocument(IndexService.java:51) | Index: DocField [name=TITLE, value=Boys be ambitious]
+2012-01-18 15:36:17,038 DEBUG [main] com.setvect.bokslsearch.engine.index.IndexService.indexDocument(IndexService.java:51) | Index: DocField [name=CONTENT, value=울라라라 메렁]
+2012-01-18 15:36:17,074 DEBUG [main] com.setvect.bokslsearch.engine.index.IndexService.indexDocument(IndexService.java:51) | Index: DocField [name=TITLE, value=애국가]
+2012-01-18 15:36:17,075 DEBUG [main] com.setvect.bokslsearch.engine.index.IndexService.indexDocument(IndexService.java:51) | Index: DocField [name=CONTENT, value=동해물과 백두산이 마르고 닳토록 하느님이 보우하사 우리나라 만세]
+2012-01-18 15:36:27,056 INFO  [main] com.setvect.bokslsearch.engine.ApplicationBootup.bootUp(ApplicationBootup.java:53) | Log Manager Initialized
+2012-01-18 15:36:27,417 INFO  [main] com.setvect.bokslsearch.engine.ApplicationBootup.bootUp(ApplicationBootup.java:58) | Spring Initialized
+2012-01-18 15:36:27,418 INFO  [main] com.setvect.bokslsearch.engine.ApplicationBootup.bootUp(ApplicationBootup.java:60) | Started...
+2012-01-18 15:36:27,553 DEBUG [main] com.setvect.bokslsearch.engine.index.IndexService.indexDocument(IndexService.java:51) | Index: DocField [name=TITLE, value=Boys be ambitious]
+2012-01-18 15:36:27,565 DEBUG [main] com.setvect.bokslsearch.engine.index.IndexService.indexDocument(IndexService.java:51) | Index: DocField [name=CONTENT, value=울라라라 메렁]
+2012-01-18 15:36:27,602 DEBUG [main] com.setvect.bokslsearch.engine.index.IndexService.indexDocument(IndexService.java:51) | Index: DocField [name=TITLE, value=애국가]
+2012-01-18 15:36:27,602 DEBUG [main] com.setvect.bokslsearch.engine.index.IndexService.indexDocument(IndexService.java:51) | Index: DocField [name=CONTENT, value=동해물과 백두산이 마르고 닳토록 하느님이 보우하사 우리나라 만세]
+2012-01-18 15:37:13,904 INFO  [main] com.setvect.bokslsearch.engine.ApplicationBootup.bootUp(ApplicationBootup.java:53) | Log Manager Initialized
+2012-01-18 15:37:14,268 INFO  [main] com.setvect.bokslsearch.engine.ApplicationBootup.bootUp(ApplicationBootup.java:58) | Spring Initialized
+2012-01-18 15:37:14,268 INFO  [main] com.setvect.bokslsearch.engine.ApplicationBootup.bootUp(ApplicationBootup.java:60) | Started...
+2012-01-18 15:37:14,402 DEBUG [main] com.setvect.bokslsearch.engine.index.IndexService.indexDocument(IndexService.java:51) | Index: DocField [name=TITLE, value=Boys be ambitious]
+2012-01-18 15:37:14,408 DEBUG [main] com.setvect.bokslsearch.engine.index.IndexService.indexDocument(IndexService.java:51) | Index: DocField [name=CONTENT, value=울라라라 메렁]
+2012-01-18 15:37:14,482 DEBUG [main] com.setvect.bokslsearch.engine.index.IndexService.indexDocument(IndexService.java:51) | Index: DocField [name=TITLE, value=애국가]
+2012-01-18 15:37:14,482 DEBUG [main] com.setvect.bokslsearch.engine.index.IndexService.indexDocument(IndexService.java:51) | Index: DocField [name=CONTENT, value=동해물과 백두산이 마르고 닳토록 하느님이 보우하사 우리나라 만세]
+2012-01-18 16:01:07,246 INFO  [main] com.setvect.bokslsearch.engine.ApplicationBootup.bootUp(ApplicationBootup.java:53) | Log Manager Initialized
+2012-01-18 16:01:07,632 INFO  [main] com.setvect.bokslsearch.engine.ApplicationBootup.bootUp(ApplicationBootup.java:58) | Spring Initialized
+2012-01-18 16:01:07,632 INFO  [main] com.setvect.bokslsearch.engine.ApplicationBootup.bootUp(ApplicationBootup.java:60) | Started...
+2012-01-18 16:01:07,890 DEBUG [main] com.setvect.bokslsearch.engine.index.IndexService.indexDocument(IndexService.java:54) | Index: DocField [name=TITLE, value=Boys be ambitious]
+2012-01-18 16:01:07,922 DEBUG [main] com.setvect.bokslsearch.engine.index.IndexService.indexDocument(IndexService.java:54) | Index: DocField [name=CONTENT, value=울라라라 메렁]
+2012-01-18 16:01:07,999 DEBUG [main] com.setvect.bokslsearch.engine.index.IndexService.indexDocument(IndexService.java:54) | Index: DocField [name=TITLE, value=애국가]
+2012-01-18 16:01:08,000 DEBUG [main] com.setvect.bokslsearch.engine.index.IndexService.indexDocument(IndexService.java:54) | Index: DocField [name=CONTENT, value=동해물과 백두산이 마르고 닳토록 하느님이 보우하사 우리나라 만세]
+2012-01-18 16:02:32,990 INFO  [main] com.setvect.bokslsearch.engine.ApplicationBootup.bootUp(ApplicationBootup.java:53) | Log Manager Initialized
+2012-01-18 16:02:33,359 INFO  [main] com.setvect.bokslsearch.engine.ApplicationBootup.bootUp(ApplicationBootup.java:58) | Spring Initialized
+2012-01-18 16:02:33,359 INFO  [main] com.setvect.bokslsearch.engine.ApplicationBootup.bootUp(ApplicationBootup.java:60) | Started...
+2012-01-18 16:02:33,484 DEBUG [main] com.setvect.bokslsearch.engine.index.IndexService.indexDocument(IndexService.java:54) | Index: DocField [name=TITLE, value=Boys be ambitious]
+2012-01-18 16:02:33,494 DEBUG [main] com.setvect.bokslsearch.engine.index.IndexService.indexDocument(IndexService.java:54) | Index: DocField [name=CONTENT, value=울라라라 메렁]
+2012-01-18 16:02:33,530 DEBUG [main] com.setvect.bokslsearch.engine.index.IndexService.indexDocument(IndexService.java:54) | Index: DocField [name=TITLE, value=애국가]
+2012-01-18 16:02:33,531 DEBUG [main] com.setvect.bokslsearch.engine.index.IndexService.indexDocument(IndexService.java:54) | Index: DocField [name=CONTENT, value=동해물과 백두산이 마르고 닳토록 하느님이 보우하사 우리나라 만세]
+2012-01-18 16:02:33,531 DEBUG [main] com.setvect.bokslsearch.engine.index.IndexService.indexDocument(IndexService.java:54) | Index: DocField [name=TITLE, value=Java Programing]
+2012-01-18 16:02:33,532 DEBUG [main] com.setvect.bokslsearch.engine.index.IndexService.indexDocument(IndexService.java:54) | Index: DocField [name=CONTENT, value=Hello Java World!]
+2012-01-18 17:16:44,468 INFO  [main] com.setvect.bokslsearch.engine.ApplicationBootup.bootUp(ApplicationBootup.java:53) | Log Manager Initialized
+2012-01-18 17:16:45,484 INFO  [main] com.setvect.bokslsearch.engine.ApplicationBootup.bootUp(ApplicationBootup.java:58) | Spring Initialized
+2012-01-18 17:16:45,485 INFO  [main] com.setvect.bokslsearch.engine.ApplicationBootup.bootUp(ApplicationBootup.java:60) | Started...
+2012-01-18 17:16:45,752 DEBUG [main] com.setvect.bokslsearch.engine.index.IndexService.indexDocument(IndexService.java:57) | Index: DocField [name=TITLE, value=Boys be ambitious]
+2012-01-18 17:16:45,764 DEBUG [main] com.setvect.bokslsearch.engine.index.IndexService.indexDocument(IndexService.java:57) | Index: DocField [name=CONTENT, value=울라라라 메렁]
+2012-01-18 17:16:45,822 DEBUG [main] com.setvect.bokslsearch.engine.index.IndexService.indexDocument(IndexService.java:57) | Index: DocField [name=TITLE, value=애국가]
+2012-01-18 17:16:45,822 DEBUG [main] com.setvect.bokslsearch.engine.index.IndexService.indexDocument(IndexService.java:57) | Index: DocField [name=CONTENT, value=동해물과 백두산이 마르고 닳토록 하느님이 보우하사 우리나라 만세]
+2012-01-18 17:16:45,823 DEBUG [main] com.setvect.bokslsearch.engine.index.IndexService.indexDocument(IndexService.java:57) | Index: DocField [name=TITLE, value=Java Programing]
+2012-01-18 17:16:45,823 DEBUG [main] com.setvect.bokslsearch.engine.index.IndexService.indexDocument(IndexService.java:57) | Index: DocField [name=CONTENT, value=Hello Java World!]
+2012-01-18 17:20:50,305 INFO  [main] com.setvect.bokslsearch.engine.ApplicationBootup.bootUp(ApplicationBootup.java:53) | Log Manager Initialized
+2012-01-18 17:20:50,676 INFO  [main] com.setvect.bokslsearch.engine.ApplicationBootup.bootUp(ApplicationBootup.java:58) | Spring Initialized
+2012-01-18 17:20:50,676 INFO  [main] com.setvect.bokslsearch.engine.ApplicationBootup.bootUp(ApplicationBootup.java:60) | Started...
+2012-01-18 17:20:50,829 DEBUG [main] com.setvect.bokslsearch.engine.index.IndexService.indexDocument(IndexService.java:57) | Index: DocField [name=TITLE, value=Boys be ambitious]
+2012-01-18 17:20:50,841 DEBUG [main] com.setvect.bokslsearch.engine.index.IndexService.indexDocument(IndexService.java:57) | Index: DocField [name=CONTENT, value=울라라라 메렁]
+2012-01-18 17:20:50,877 DEBUG [main] com.setvect.bokslsearch.engine.index.IndexService.indexDocument(IndexService.java:57) | Index: DocField [name=TITLE, value=애국가]
+2012-01-18 17:20:50,878 DEBUG [main] com.setvect.bokslsearch.engine.index.IndexService.indexDocument(IndexService.java:57) | Index: DocField [name=CONTENT, value=동해물과 백두산이 마르고 닳토록 하느님이 보우하사 우리나라 만세]
+2012-01-18 17:20:50,878 DEBUG [main] com.setvect.bokslsearch.engine.index.IndexService.indexDocument(IndexService.java:57) | Index: DocField [name=TITLE, value=Java Programing]
+2012-01-18 17:20:50,878 DEBUG [main] com.setvect.bokslsearch.engine.index.IndexService.indexDocument(IndexService.java:57) | Index: DocField [name=CONTENT, value=Hello Java World!]
+2012-01-18 17:21:03,946 INFO  [main] com.setvect.bokslsearch.engine.ApplicationBootup.bootUp(ApplicationBootup.java:53) | Log Manager Initialized
+2012-01-18 17:21:04,311 INFO  [main] com.setvect.bokslsearch.engine.ApplicationBootup.bootUp(ApplicationBootup.java:58) | Spring Initialized
+2012-01-18 17:21:04,312 INFO  [main] com.setvect.bokslsearch.engine.ApplicationBootup.bootUp(ApplicationBootup.java:60) | Started...
+2012-01-18 17:21:04,434 DEBUG [main] com.setvect.bokslsearch.engine.index.IndexService.indexDocument(IndexService.java:57) | Index: DocField [name=TITLE, value=Boys be ambitious]
+2012-01-18 17:21:04,444 DEBUG [main] com.setvect.bokslsearch.engine.index.IndexService.indexDocument(IndexService.java:57) | Index: DocField [name=CONTENT, value=울라라라 메렁]
+2012-01-18 17:21:04,480 DEBUG [main] com.setvect.bokslsearch.engine.index.IndexService.indexDocument(IndexService.java:57) | Index: DocField [name=TITLE, value=애국가]
+2012-01-18 17:21:04,480 DEBUG [main] com.setvect.bokslsearch.engine.index.IndexService.indexDocument(IndexService.java:57) | Index: DocField [name=CONTENT, value=동해물과 백두산이 마르고 닳토록 하느님이 보우하사 우리나라 만세]
+2012-01-18 17:21:04,481 DEBUG [main] com.setvect.bokslsearch.engine.index.IndexService.indexDocument(IndexService.java:57) | Index: DocField [name=TITLE, value=Java Programing]
+2012-01-18 17:21:04,481 DEBUG [main] com.setvect.bokslsearch.engine.index.IndexService.indexDocument(IndexService.java:57) | Index: DocField [name=CONTENT, value=Hello Java World!]
+2012-01-18 17:21:10,678 INFO  [main] com.setvect.bokslsearch.engine.ApplicationBootup.bootUp(ApplicationBootup.java:53) | Log Manager Initialized
+2012-01-18 17:21:11,040 INFO  [main] com.setvect.bokslsearch.engine.ApplicationBootup.bootUp(ApplicationBootup.java:58) | Spring Initialized
+2012-01-18 17:21:11,041 INFO  [main] com.setvect.bokslsearch.engine.ApplicationBootup.bootUp(ApplicationBootup.java:60) | Started...
+2012-01-18 17:21:11,168 DEBUG [main] com.setvect.bokslsearch.engine.index.IndexService.indexDocument(IndexService.java:57) | Index: DocField [name=TITLE, value=Boys be ambitious]
+2012-01-18 17:21:11,178 DEBUG [main] com.setvect.bokslsearch.engine.index.IndexService.indexDocument(IndexService.java:57) | Index: DocField [name=CONTENT, value=울라라라 메렁]
+2012-01-18 17:21:11,217 DEBUG [main] com.setvect.bokslsearch.engine.index.IndexService.indexDocument(IndexService.java:57) | Index: DocField [name=TITLE, value=애국가]
+2012-01-18 17:21:11,217 DEBUG [main] com.setvect.bokslsearch.engine.index.IndexService.indexDocument(IndexService.java:57) | Index: DocField [name=CONTENT, value=동해물과 백두산이 마르고 닳토록 하느님이 보우하사 우리나라 만세]
+2012-01-18 17:21:11,218 DEBUG [main] com.setvect.bokslsearch.engine.index.IndexService.indexDocument(IndexService.java:57) | Index: DocField [name=TITLE, value=Java Programing]
+2012-01-18 17:21:11,218 DEBUG [main] com.setvect.bokslsearch.engine.index.IndexService.indexDocument(IndexService.java:57) | Index: DocField [name=CONTENT, value=Hello Java World!]
+2012-01-18 17:21:19,763 INFO  [main] com.setvect.bokslsearch.engine.ApplicationBootup.bootUp(ApplicationBootup.java:53) | Log Manager Initialized
+2012-01-18 17:21:20,134 INFO  [main] com.setvect.bokslsearch.engine.ApplicationBootup.bootUp(ApplicationBootup.java:58) | Spring Initialized
+2012-01-18 17:21:20,135 INFO  [main] com.setvect.bokslsearch.engine.ApplicationBootup.bootUp(ApplicationBootup.java:60) | Started...
+2012-01-18 17:21:20,256 DEBUG [main] com.setvect.bokslsearch.engine.index.IndexService.indexDocument(IndexService.java:57) | Index: DocField [name=TITLE, value=Boys be ambitious]
+2012-01-18 17:21:20,266 DEBUG [main] com.setvect.bokslsearch.engine.index.IndexService.indexDocument(IndexService.java:57) | Index: DocField [name=CONTENT, value=울라라라 메렁]
+2012-01-18 17:21:20,304 DEBUG [main] com.setvect.bokslsearch.engine.index.IndexService.indexDocument(IndexService.java:57) | Index: DocField [name=TITLE, value=애국가]
+2012-01-18 17:21:20,304 DEBUG [main] com.setvect.bokslsearch.engine.index.IndexService.indexDocument(IndexService.java:57) | Index: DocField [name=CONTENT, value=동해물과 백두산이 마르고 닳토록 하느님이 보우하사 우리나라 만세]
+2012-01-18 17:21:20,305 DEBUG [main] com.setvect.bokslsearch.engine.index.IndexService.indexDocument(IndexService.java:57) | Index: DocField [name=TITLE, value=Java Programing]
+2012-01-18 17:21:20,305 DEBUG [main] com.setvect.bokslsearch.engine.index.IndexService.indexDocument(IndexService.java:57) | Index: DocField [name=CONTENT, value=Hello Java World!]
+2012-01-18 17:21:22,221 INFO  [main] com.setvect.bokslsearch.engine.ApplicationBootup.bootUp(ApplicationBootup.java:53) | Log Manager Initialized
+2012-01-18 17:21:22,587 INFO  [main] com.setvect.bokslsearch.engine.ApplicationBootup.bootUp(ApplicationBootup.java:58) | Spring Initialized
+2012-01-18 17:21:22,587 INFO  [main] com.setvect.bokslsearch.engine.ApplicationBootup.bootUp(ApplicationBootup.java:60) | Started...
+2012-01-18 17:21:22,725 DEBUG [main] com.setvect.bokslsearch.engine.index.IndexService.indexDocument(IndexService.java:57) | Index: DocField [name=TITLE, value=Boys be ambitious]
+2012-01-18 17:21:22,731 DEBUG [main] com.setvect.bokslsearch.engine.index.IndexService.indexDocument(IndexService.java:57) | Index: DocField [name=CONTENT, value=울라라라 메렁]
+2012-01-18 17:21:22,768 DEBUG [main] com.setvect.bokslsearch.engine.index.IndexService.indexDocument(IndexService.java:57) | Index: DocField [name=TITLE, value=애국가]
+2012-01-18 17:21:22,768 DEBUG [main] com.setvect.bokslsearch.engine.index.IndexService.indexDocument(IndexService.java:57) | Index: DocField [name=CONTENT, value=동해물과 백두산이 마르고 닳토록 하느님이 보우하사 우리나라 만세]
+2012-01-18 17:21:22,769 DEBUG [main] com.setvect.bokslsearch.engine.index.IndexService.indexDocument(IndexService.java:57) | Index: DocField [name=TITLE, value=Java Programing]
+2012-01-18 17:21:22,769 DEBUG [main] com.setvect.bokslsearch.engine.index.IndexService.indexDocument(IndexService.java:57) | Index: DocField [name=CONTENT, value=Hello Java World!]
+2012-01-18 17:21:27,772 INFO  [main] com.setvect.bokslsearch.engine.ApplicationBootup.bootUp(ApplicationBootup.java:53) | Log Manager Initialized
+2012-01-18 17:21:28,137 INFO  [main] com.setvect.bokslsearch.engine.ApplicationBootup.bootUp(ApplicationBootup.java:58) | Spring Initialized
+2012-01-18 17:21:28,137 INFO  [main] com.setvect.bokslsearch.engine.ApplicationBootup.bootUp(ApplicationBootup.java:60) | Started...
+2012-01-18 17:21:28,275 DEBUG [main] com.setvect.bokslsearch.engine.index.IndexService.indexDocument(IndexService.java:57) | Index: DocField [name=TITLE, value=Boys be ambitious]
+2012-01-18 17:21:28,281 DEBUG [main] com.setvect.bokslsearch.engine.index.IndexService.indexDocument(IndexService.java:57) | Index: DocField [name=CONTENT, value=울라라라 메렁]
+2012-01-18 17:21:28,316 DEBUG [main] com.setvect.bokslsearch.engine.index.IndexService.indexDocument(IndexService.java:57) | Index: DocField [name=TITLE, value=애국가]
+2012-01-18 17:21:28,316 DEBUG [main] com.setvect.bokslsearch.engine.index.IndexService.indexDocument(IndexService.java:57) | Index: DocField [name=CONTENT, value=동해물과 백두산이 마르고 닳토록 하느님이 보우하사 우리나라 만세]
+2012-01-18 17:21:28,317 DEBUG [main] com.setvect.bokslsearch.engine.index.IndexService.indexDocument(IndexService.java:57) | Index: DocField [name=TITLE, value=Java Programing]
+2012-01-18 17:21:28,317 DEBUG [main] com.setvect.bokslsearch.engine.index.IndexService.indexDocument(IndexService.java:57) | Index: DocField [name=CONTENT, value=Hello Java World!]
+2012-01-18 17:21:29,759 INFO  [main] com.setvect.bokslsearch.engine.ApplicationBootup.bootUp(ApplicationBootup.java:53) | Log Manager Initialized
+2012-01-18 17:21:30,121 INFO  [main] com.setvect.bokslsearch.engine.ApplicationBootup.bootUp(ApplicationBootup.java:58) | Spring Initialized
+2012-01-18 17:21:30,121 INFO  [main] com.setvect.bokslsearch.engine.ApplicationBootup.bootUp(ApplicationBootup.java:60) | Started...
+2012-01-18 17:21:30,247 DEBUG [main] com.setvect.bokslsearch.engine.index.IndexService.indexDocument(IndexService.java:57) | Index: DocField [name=TITLE, value=Boys be ambitious]
+2012-01-18 17:21:30,257 DEBUG [main] com.setvect.bokslsearch.engine.index.IndexService.indexDocument(IndexService.java:57) | Index: DocField [name=CONTENT, value=울라라라 메렁]
+2012-01-18 17:21:30,291 DEBUG [main] com.setvect.bokslsearch.engine.index.IndexService.indexDocument(IndexService.java:57) | Index: DocField [name=TITLE, value=애국가]
+2012-01-18 17:21:30,292 DEBUG [main] com.setvect.bokslsearch.engine.index.IndexService.indexDocument(IndexService.java:57) | Index: DocField [name=CONTENT, value=동해물과 백두산이 마르고 닳토록 하느님이 보우하사 우리나라 만세]
+2012-01-18 17:21:30,292 DEBUG [main] com.setvect.bokslsearch.engine.index.IndexService.indexDocument(IndexService.java:57) | Index: DocField [name=TITLE, value=Java Programing]
+2012-01-18 17:21:30,293 DEBUG [main] com.setvect.bokslsearch.engine.index.IndexService.indexDocument(IndexService.java:57) | Index: DocField [name=CONTENT, value=Hello Java World!]
+2012-01-18 17:21:39,771 INFO  [main] com.setvect.bokslsearch.engine.ApplicationBootup.bootUp(ApplicationBootup.java:53) | Log Manager Initialized
+2012-01-18 17:21:40,136 INFO  [main] com.setvect.bokslsearch.engine.ApplicationBootup.bootUp(ApplicationBootup.java:58) | Spring Initialized
+2012-01-18 17:21:40,137 INFO  [main] com.setvect.bokslsearch.engine.ApplicationBootup.bootUp(ApplicationBootup.java:60) | Started...
+2012-01-18 17:21:40,260 DEBUG [main] com.setvect.bokslsearch.engine.index.IndexService.indexDocument(IndexService.java:57) | Index: DocField [name=TITLE, value=Boys be ambitious]
+2012-01-18 17:21:40,270 DEBUG [main] com.setvect.bokslsearch.engine.index.IndexService.indexDocument(IndexService.java:57) | Index: DocField [name=CONTENT, value=울라라라 메렁]
+2012-01-18 17:21:40,307 DEBUG [main] com.setvect.bokslsearch.engine.index.IndexService.indexDocument(IndexService.java:57) | Index: DocField [name=TITLE, value=애국가]
+2012-01-18 17:21:40,307 DEBUG [main] com.setvect.bokslsearch.engine.index.IndexService.indexDocument(IndexService.java:57) | Index: DocField [name=CONTENT, value=동해물과 백두산이 마르고 닳토록 하느님이 보우하사 우리나라 만세]
+2012-01-18 17:21:40,308 DEBUG [main] com.setvect.bokslsearch.engine.index.IndexService.indexDocument(IndexService.java:57) | Index: DocField [name=TITLE, value=Java Programing]
+2012-01-18 17:21:40,308 DEBUG [main] com.setvect.bokslsearch.engine.index.IndexService.indexDocument(IndexService.java:57) | Index: DocField [name=CONTENT, value=Hello Java World!]
+2012-01-18 17:31:52,872 INFO  [main] com.setvect.bokslsearch.engine.ApplicationBootup.bootUp(ApplicationBootup.java:42) | Log Manager Initialized
+2012-01-18 17:31:52,874 INFO  [main] com.setvect.bokslsearch.engine.ApplicationBootup.bootUp(ApplicationBootup.java:44) | Started...
+2012-01-18 17:31:52,995 DEBUG [main] com.setvect.bokslsearch.engine.index.IndexService.indexDocument(IndexService.java:55) | Index: DocField [name=TITLE, value=Boys be ambitious]
+2012-01-18 17:31:53,005 DEBUG [main] com.setvect.bokslsearch.engine.index.IndexService.indexDocument(IndexService.java:55) | Index: DocField [name=CONTENT, value=울라라라 메렁]
+2012-01-18 17:31:53,045 DEBUG [main] com.setvect.bokslsearch.engine.index.IndexService.indexDocument(IndexService.java:55) | Index: DocField [name=TITLE, value=애국가]
+2012-01-18 17:31:53,046 DEBUG [main] com.setvect.bokslsearch.engine.index.IndexService.indexDocument(IndexService.java:55) | Index: DocField [name=CONTENT, value=동해물과 백두산이 마르고 닳토록 하느님이 보우하사 우리나라 만세]
+2012-01-18 17:31:53,047 DEBUG [main] com.setvect.bokslsearch.engine.index.IndexService.indexDocument(IndexService.java:55) | Index: DocField [name=TITLE, value=Java Programing]
+2012-01-18 17:31:53,047 DEBUG [main] com.setvect.bokslsearch.engine.index.IndexService.indexDocument(IndexService.java:55) | Index: DocField [name=CONTENT, value=Hello Java World!]
+2012-01-18 17:32:44,992 INFO  [main] com.setvect.bokslsearch.engine.ApplicationBootup.bootUp(ApplicationBootup.java:42) | Log Manager Initialized
+2012-01-18 17:32:44,994 INFO  [main] com.setvect.bokslsearch.engine.ApplicationBootup.bootUp(ApplicationBootup.java:44) | Started...
+2012-01-18 17:33:15,638 INFO  [main] com.setvect.bokslsearch.engine.ApplicationBootup.bootUp(ApplicationBootup.java:42) | Log Manager Initialized
+2012-01-18 17:33:15,640 INFO  [main] com.setvect.bokslsearch.engine.ApplicationBootup.bootUp(ApplicationBootup.java:44) | Started...
+2012-01-18 17:33:15,762 DEBUG [main] com.setvect.bokslsearch.engine.index.IndexService.indexDocument(IndexService.java:55) | Index: DocField [name=TITLE, value=Boys be ambitious]
+2012-01-18 17:33:15,772 DEBUG [main] com.setvect.bokslsearch.engine.index.IndexService.indexDocument(IndexService.java:55) | Index: DocField [name=CONTENT, value=울라라라 메렁]
+2012-01-18 17:33:15,812 DEBUG [main] com.setvect.bokslsearch.engine.index.IndexService.indexDocument(IndexService.java:55) | Index: DocField [name=TITLE, value=애국가]
+2012-01-18 17:33:15,812 DEBUG [main] com.setvect.bokslsearch.engine.index.IndexService.indexDocument(IndexService.java:55) | Index: DocField [name=CONTENT, value=동해물과 백두산이 마르고 닳토록 하느님이 보우하사 우리나라 만세]
+2012-01-18 17:33:15,813 DEBUG [main] com.setvect.bokslsearch.engine.index.IndexService.indexDocument(IndexService.java:55) | Index: DocField [name=TITLE, value=Java Programing]
+2012-01-18 17:33:15,813 DEBUG [main] com.setvect.bokslsearch.engine.index.IndexService.indexDocument(IndexService.java:55) | Index: DocField [name=CONTENT, value=Hello Java World!]
+2012-01-18 17:34:18,946 INFO  [main] com.setvect.bokslsearch.engine.ApplicationBootup.bootUp(ApplicationBootup.java:43) | Log Manager Initialized
+2012-01-18 17:34:18,948 INFO  [main] com.setvect.bokslsearch.engine.ApplicationBootup.bootUp(ApplicationBootup.java:45) | Started...
+2012-01-18 17:41:17,753 INFO  [main] com.setvect.bokslsearch.engine.ApplicationBootup.bootUp(ApplicationBootup.java:43) | Log Manager Initialized
+2012-01-18 17:41:21,176 INFO  [main] com.setvect.bokslsearch.engine.ApplicationBootup.bootUp(ApplicationBootup.java:45) | Started...
+2012-01-18 17:43:20,129 INFO  [main] com.setvect.bokslsearch.engine.ApplicationBootup.bootUp(ApplicationBootup.java:43) | Log Manager Initialized
+2012-01-18 17:43:20,760 INFO  [main] com.setvect.bokslsearch.engine.ApplicationBootup.bootUp(ApplicationBootup.java:45) | Started...
+2012-01-18 17:44:40,331 INFO  [main] com.setvect.bokslsearch.engine.ApplicationBootup.bootUp(ApplicationBootup.java:43) | Log Manager Initialized
+2012-01-18 17:44:40,333 INFO  [main] com.setvect.bokslsearch.engine.ApplicationBootup.bootUp(ApplicationBootup.java:45) | Started...
+2012-01-18 17:46:19,838 INFO  [main] com.setvect.bokslsearch.engine.ApplicationBootup.bootUp(ApplicationBootup.java:43) | Log Manager Initialized
+2012-01-18 17:46:19,840 INFO  [main] com.setvect.bokslsearch.engine.ApplicationBootup.bootUp(ApplicationBootup.java:45) | Started...
+2012-01-18 17:46:19,961 DEBUG [main] com.setvect.bokslsearch.engine.index.IndexService.indexDocument(IndexService.java:55) | Index: DocField [name=TITLE, value=Boys be ambitious]
+2012-01-18 17:46:19,972 DEBUG [main] com.setvect.bokslsearch.engine.index.IndexService.indexDocument(IndexService.java:55) | Index: DocField [name=CONTENT, value=울라라라 메렁]
+2012-01-18 17:46:20,011 DEBUG [main] com.setvect.bokslsearch.engine.index.IndexService.indexDocument(IndexService.java:55) | Index: DocField [name=TITLE, value=애국가]
+2012-01-18 17:46:20,012 DEBUG [main] com.setvect.bokslsearch.engine.index.IndexService.indexDocument(IndexService.java:55) | Index: DocField [name=CONTENT, value=동해물과 백두산이 마르고 닳토록 하느님이 보우하사 우리나라 만세]
+2012-01-18 17:46:20,012 DEBUG [main] com.setvect.bokslsearch.engine.index.IndexService.indexDocument(IndexService.java:55) | Index: DocField [name=TITLE, value=Java Programing]
+2012-01-18 17:46:20,013 DEBUG [main] com.setvect.bokslsearch.engine.index.IndexService.indexDocument(IndexService.java:55) | Index: DocField [name=CONTENT, value=Hello Java World!]
