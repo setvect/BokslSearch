@@ -10,15 +10,16 @@ import org.apache.lucene.analysis.standard.StandardAnalyzer;
 import org.apache.lucene.document.Document;
 import org.apache.lucene.document.Field;
 import org.apache.lucene.index.IndexReader;
+import org.apache.lucene.index.IndexReader.FieldOption;
 import org.apache.lucene.index.IndexWriter;
 import org.apache.lucene.index.IndexWriterConfig;
-import org.apache.lucene.index.IndexReader.FieldOption;
 import org.apache.lucene.store.Directory;
 import org.apache.lucene.store.NIOFSDirectory;
 import org.apache.lucene.util.Version;
 
-import com.setvect.bokslsearch.engine.config.ApplicationConstant;
-import com.setvect.bokslsearch.engine.index.DocRecord.DocField;
+import com.setvect.bokslsearch.engine.ApplicationUtil;
+import com.setvect.bokslsearch.engine.vo.DocRecord;
+import com.setvect.bokslsearch.engine.vo.DocRecord.DocField;
 import com.setvect.common.log.LogPrinter;
 import com.setvect.common.util.FileUtil;
 import com.setvect.common.util.StringUtilAd;
@@ -41,7 +42,7 @@ public class IndexService {
 		StandardAnalyzer analyzer = new StandardAnalyzer(Version.LUCENE_35);
 		IndexWriterConfig config = new IndexWriterConfig(Version.LUCENE_35, analyzer);
 
-		File indexFile = getIndexDir(indexName);
+		File indexFile = ApplicationUtil.getIndexDir(indexName);
 		Directory index;
 		IndexWriter w = null;
 
@@ -78,7 +79,7 @@ public class IndexService {
 	 *            색인 이름
 	 */
 	public void deleteIndex(String indexName) {
-		File s = getIndexDir(indexName);
+		File s = ApplicationUtil.getIndexDir(indexName);
 		try {
 			FileUtil.deleteDirectory(s);
 		} catch (IOException e) {
@@ -95,7 +96,7 @@ public class IndexService {
 	 * @throws IOException
 	 */
 	public IndexMetadata getIndexInfo(String indexName) throws IOException {
-		File s = getIndexDir(indexName);
+		File s = ApplicationUtil.getIndexDir(indexName);
 		NIOFSDirectory index = new NIOFSDirectory(s);
 		IndexReader ir = null;
 
@@ -117,17 +118,5 @@ public class IndexService {
 
 		return result;
 
-	}
-
-	/**
-	 * 색인 디렉토리 경로
-	 * 
-	 * @param indexName
-	 *            색인 이름
-	 * @return 색인 디렉토리 경로
-	 */
-	private File getIndexDir(String indexName) {
-		File indexFile = new File(ApplicationConstant.INDEX_DIR, indexName);
-		return indexFile;
 	}
 }

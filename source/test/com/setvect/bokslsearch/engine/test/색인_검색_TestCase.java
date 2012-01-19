@@ -6,19 +6,26 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.lucene.queryParser.ParseException;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-import com.setvect.bokslsearch.engine.index.DocRecord;
-import com.setvect.bokslsearch.engine.index.DocRecord.DocField;
+import com.setvect.bokslsearch.engine.ApplicationUtil;
 import com.setvect.bokslsearch.engine.index.IndexMetadata;
 import com.setvect.bokslsearch.engine.index.IndexService;
+import com.setvect.bokslsearch.engine.search.QueryParameter;
+import com.setvect.bokslsearch.engine.search.SearchService;
+import com.setvect.bokslsearch.engine.vo.DocRecord;
+import com.setvect.bokslsearch.engine.vo.DocRecord.DocField;
+import com.setvect.bokslsearch.engine.vo.SearchResult;
 
 public class 색인_검색_TestCase extends TestInit {
 
 	private static final String INDEX_NAME = "test";
+
+	private static final String INDEX_NAME2 = "test2";
 
 	private IndexService indexService = new IndexService();
 
@@ -59,6 +66,7 @@ public class 색인_검색_TestCase extends TestInit {
 		r3.addField(field2);
 		data.add(r3);
 		indexService.indexDocument(INDEX_NAME, data);
+		indexService.indexDocument(INDEX_NAME2, data);
 	}
 
 	@Test
@@ -70,9 +78,32 @@ public class 색인_검색_TestCase extends TestInit {
 		Assert.assertThat(result.getFieldName().size(), is(2));
 	}
 
+	@Test
+	public void 검색() throws ParseException, IOException {
+		SearchService searcher = new SearchService();
+
+		QueryParameter query = new QueryParameter();
+		query.setIndex(ApplicationUtil.toList(INDEX_NAME + "," + INDEX_NAME2));
+		query.setQuery("TITLE:ambitious");
+		query.setReturnRange(0, 5);
+		query.setReturnFields(ApplicationUtil.toList("TITLE,CONTENT"));
+
+		SearchResult result = searcher.search(query);
+		Assert.assertThat(result.getTotalHits(), is(2));
+		Assert.assertThat(result.getCurrentHits(), is(2));
+		Assert.assertThat(result.getValue(0, "TITLE"), is("Boys be ambitious"));
+
+		query.setReturnRange(0, 1);
+		result = searcher.search(query);
+		Assert.assertThat(result.getTotalHits(), is(2));
+		Assert.assertThat(result.getCurrentHits(), is(2));
+		Assert.assertThat(result.getValue(0, "TITLE"), is("Boys be ambitious"));
+	}
+
 	@After
 	public void 색인삭제() {
 		indexService.deleteIndex(INDEX_NAME);
+		indexService.deleteIndex(INDEX_NAME2);
 		System.out.println("색인 삭제");
 	}
 }

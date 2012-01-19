@@ -1,4 +1,4 @@
-package com.setvect.bokslsearch.engine.index;
+package com.setvect.bokslsearch.engine.vo;
 
 import java.util.ArrayList;
 import java.util.Collections;
