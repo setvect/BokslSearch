@@ -13,6 +13,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import com.setvect.bokslsearch.engine.ApplicationUtil;
+import com.setvect.bokslsearch.engine.index.AnalyzerType;
 import com.setvect.bokslsearch.engine.index.IndexMetadata;
 import com.setvect.bokslsearch.engine.index.IndexService;
 import com.setvect.bokslsearch.engine.search.QueryParameter;
@@ -37,10 +38,12 @@ public class 색인_검색_TestCase extends TestInit {
 		DocField field1 = new DocField();
 		field1.setName("TITLE");
 		field1.setValue("Boys be ambitious");
+		field1.setAnalyzerType(AnalyzerType.CJK);
 		r1.addField(field1);
 		DocField field2 = new DocField();
 		field2.setName("CONTENT");
 		field2.setValue("울라라라 메렁");
+		field2.setAnalyzerType(AnalyzerType.CJK);
 		r1.addField(field2);
 		data.add(r1);
 
@@ -48,10 +51,12 @@ public class 색인_검색_TestCase extends TestInit {
 		field1 = new DocField();
 		field1.setName("TITLE");
 		field1.setValue("애국가");
+		field1.setAnalyzerType(AnalyzerType.CJK);
 		r2.addField(field1);
 		field2 = new DocField();
 		field2.setName("CONTENT");
 		field2.setValue("동해물과 백두산이 마르고 닳토록 하느님이 보우하사 우리나라 만세");
+		field2.setAnalyzerType(AnalyzerType.CJK);
 		r2.addField(field2);
 		data.add(r2);
 
@@ -59,10 +64,12 @@ public class 색인_검색_TestCase extends TestInit {
 		field1 = new DocField();
 		field1.setName("TITLE");
 		field1.setValue("Java Programing");
+		field1.setAnalyzerType(AnalyzerType.CJK);
 		r3.addField(field1);
 		field2 = new DocField();
 		field2.setName("CONTENT");
 		field2.setValue("Hello Java World!");
+		field2.setAnalyzerType(AnalyzerType.CJK);
 		r3.addField(field2);
 		data.add(r3);
 		indexService.indexDocument(INDEX_NAME, data);
@@ -76,6 +83,12 @@ public class 색인_검색_TestCase extends TestInit {
 		Assert.assertThat(result.getDeleteCount(), is(0));
 		Assert.assertThat(result.getDocCount(), is(3));
 		Assert.assertThat(result.getFieldName().size(), is(2));
+
+		List<String> a = result.getFieldName();
+		for (String c : a) {
+			System.out.println(c);
+		}
+
 	}
 
 	@Test
@@ -84,9 +97,9 @@ public class 색인_검색_TestCase extends TestInit {
 
 		QueryParameter query = new QueryParameter();
 		query.setIndex(ApplicationUtil.toList(INDEX_NAME + "," + INDEX_NAME2));
-		query.setQuery("TITLE:ambitious");
+		query.setQuery("CONTENT:울라 OR 메렁");
 		query.setReturnRange(0, 5);
-		query.setReturnFields(ApplicationUtil.toList("TITLE,CONTENT"));
+		query.setReturnFields(ApplicationUtil.toList("TITLE,TITLE_I,CONTENT,CONTENT_I"));
 
 		SearchResult result = searcher.search(query);
 		Assert.assertThat(result.getTotalHits(), is(2));

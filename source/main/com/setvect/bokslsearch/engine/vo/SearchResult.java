@@ -79,5 +79,4 @@ public class SearchResult {
 	public String toString() {
 		return "SearchResult [totalHits=" + totalHits + ", records=" + records + "]";
 	}
-
 }

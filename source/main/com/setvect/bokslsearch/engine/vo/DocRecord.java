@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+import com.setvect.bokslsearch.engine.index.AnalyzerType;
+
 /**
  * 색인을 하기 위한 레코드(문서)
  */
@@ -39,6 +41,8 @@ public class DocRecord {
 		private String name;
 		/** 필드 값 */
 		private String value;
+		/** 저장 유형 종류(색인 방식) */
+		private AnalyzerType analyzerType;
 
 		/**
 		 * 필드 이름
@@ -78,6 +82,25 @@ public class DocRecord {
 			this.value = value;
 		}
 
+		/**
+		 * 저장 유형 종류(색인 방식)
+		 * 
+		 * @return the analyzerType
+		 */
+		public AnalyzerType getAnalyzerType() {
+			return analyzerType;
+		}
+
+		/**
+		 * 저장 유형 종류(색인 방식)
+		 * 
+		 * @param analyzerType
+		 *            the analyzerType to set
+		 */
+		public void setAnalyzerType(AnalyzerType analyzerType) {
+			this.analyzerType = analyzerType;
+		}
+
 		/*
 		 * (non-Javadoc)
 		 * 
@@ -85,7 +108,7 @@ public class DocRecord {
 		 */
 		@Override
 		public String toString() {
-			return "DocField [name=" + name + ", value=" + value + "]";
+			return "DocField [name=" + name + ", value=" + value + ", analyzerType=" + analyzerType + "]";
 		}
 	}
 }

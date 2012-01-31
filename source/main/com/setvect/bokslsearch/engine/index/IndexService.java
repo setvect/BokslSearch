@@ -2,10 +2,13 @@ package com.setvect.bokslsearch.engine.index;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.StringReader;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
+import org.apache.lucene.analysis.Analyzer;
+import org.apache.lucene.analysis.TokenStream;
 import org.apache.lucene.analysis.standard.StandardAnalyzer;
 import org.apache.lucene.document.Document;
 import org.apache.lucene.document.Field;
@@ -28,6 +31,7 @@ import com.setvect.common.util.StringUtilAd;
  * 색인 수행
  */
 public class IndexService {
+
 	/**
 	 * 색인 수행<br>
 	 * TODO 두개 이상의 스래드가 하나의 색인파일에 대해서 색인하는 것 고려 하지 않음
@@ -39,16 +43,16 @@ public class IndexService {
 	 * @throws IOException
 	 */
 	public void indexDocument(String indexName, List<DocRecord> data) throws IOException {
-		StandardAnalyzer analyzer = new StandardAnalyzer(Version.LUCENE_35);
-		IndexWriterConfig config = new IndexWriterConfig(Version.LUCENE_35, analyzer);
 
 		File indexFile = ApplicationUtil.getIndexDir(indexName);
 		Directory index;
 		IndexWriter w = null;
-
+		Analyzer analyzer = new StandardAnalyzer(Version.LUCENE_35);
+		IndexWriterConfig config = new IndexWriterConfig(Version.LUCENE_35, analyzer);
 		try {
 			index = new NIOFSDirectory(indexFile);
 			w = new IndexWriter(index, config);
+
 			for (DocRecord r : data) {
 				Document doc = new Document();
 				List<DocField> fs = r.getFields();
@@ -57,7 +61,10 @@ public class IndexService {
 					if (StringUtilAd.isEmpty(f.getValue())) {
 						continue;
 					}
-					doc.add(new Field(f.getName(), f.getValue(), Field.Store.YES, Field.Index.ANALYZED));
+					doc.add(new Field(f.getName(), f.getValue(), Field.Store.YES, Field.Index.NOT_ANALYZED));
+					Analyzer fieldAnalsyzer = f.getAnalyzerType().getAnalyzer();
+					TokenStream ts = fieldAnalsyzer.tokenStream("dummy", new StringReader(f.getValue()));
+					doc.add(new Field(f.getName(), ts));
 				}
 				w.addDocument(doc);
 			}
@@ -78,7 +85,7 @@ public class IndexService {
 	 * @param indexName
 	 *            색인 이름
 	 */
-	public void deleteIndex(String indexName) {
+	public static void deleteIndex(String indexName) {
 		File s = ApplicationUtil.getIndexDir(indexName);
 		try {
 			FileUtil.deleteDirectory(s);
