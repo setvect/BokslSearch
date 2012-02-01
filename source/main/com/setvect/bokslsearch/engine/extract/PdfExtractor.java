@@ -13,7 +13,7 @@ import org.pdfbox.util.PDFTextStripper;
 /**
  * PDF -> TEXT 추출
  */
-public class PDFExtractor {
+public class PdfExtractor implements FileTextExtractor {
 	/**
 	 * 텍스트 추출
 	 * 
@@ -21,16 +21,24 @@ public class PDFExtractor {
 	 *            PDF 파일
 	 * @return TEXT
 	 */
-	public static String extract(File pdfFile) {
+	public String extract(File pdfFile) {
 		COSDocument cosDoc = null;
+		InputStream is = null;
 		try {
-			InputStream is = new FileInputStream(pdfFile);
+			is = new FileInputStream(pdfFile);
 			cosDoc = parseDocument(is);
 			PDFTextStripper striper = new PDFTextStripper();
 			String text = striper.getText(new PDDocument(cosDoc));
-			return text;
+			return text.trim();
 		} catch (IOException e) {
 			throw new RuntimeException(e);
+		} finally {
+			if (is != null) {
+				try {
+					is.close();
+				} catch (IOException e) {
+				}
+			}
 		}
 	}
 
