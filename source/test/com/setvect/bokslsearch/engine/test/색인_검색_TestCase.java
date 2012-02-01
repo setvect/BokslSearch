@@ -5,11 +5,13 @@ import static org.hamcrest.CoreMatchers.is;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.lucene.queryParser.ParseException;
-import org.junit.After;
+import org.apache.lucene.search.BooleanClause.Occur;
+import org.junit.AfterClass;
 import org.junit.Assert;
-import org.junit.Before;
+import org.junit.BeforeClass;
 import org.junit.Test;
 
 import com.setvect.bokslsearch.engine.ApplicationUtil;
@@ -28,10 +30,8 @@ public class 색인_검색_TestCase extends TestInit {
 
 	private static final String INDEX_NAME2 = "test2";
 
-	private IndexService indexService = new IndexService();
-
-	@Before
-	public void 문자열색인() throws IOException {
+	@BeforeClass
+	public static void 문자열색인() throws IOException {
 
 		List<DocRecord> data = new ArrayList<DocRecord>();
 		DocRecord r1 = new DocRecord();
@@ -72,12 +72,15 @@ public class 색인_검색_TestCase extends TestInit {
 		field2.setAnalyzerType(AnalyzerType.CJK);
 		r3.addField(field2);
 		data.add(r3);
+
+		IndexService indexService = new IndexService();
 		indexService.indexDocument(INDEX_NAME, data);
 		indexService.indexDocument(INDEX_NAME2, data);
 	}
 
 	@Test
 	public void 메타정보_조회() throws IOException {
+		IndexService indexService = new IndexService();
 		IndexMetadata result = indexService.getIndexInfo(INDEX_NAME);
 		System.out.println(result.toString());
 		Assert.assertThat(result.getDeleteCount(), is(0));
@@ -88,19 +91,17 @@ public class 색인_검색_TestCase extends TestInit {
 		for (String c : a) {
 			System.out.println(c);
 		}
-
 	}
 
 	@Test
 	public void 검색() throws ParseException, IOException {
-		SearchService searcher = new SearchService();
-
 		QueryParameter query = new QueryParameter();
 		query.setIndex(ApplicationUtil.toList(INDEX_NAME + "," + INDEX_NAME2));
-		query.setQuery("CONTENT:울라 OR 메렁");
+		query.addQuery("CONTENT", "울라 OR 메렁", AnalyzerType.CJK, Occur.MUST);
 		query.setReturnRange(0, 5);
 		query.setReturnFields(ApplicationUtil.toList("TITLE,TITLE_I,CONTENT,CONTENT_I"));
 
+		SearchService searcher = new SearchService();
 		SearchResult result = searcher.search(query);
 		Assert.assertThat(result.getTotalHits(), is(2));
 		Assert.assertThat(result.getCurrentHits(), is(2));
@@ -113,10 +114,69 @@ public class 색인_검색_TestCase extends TestInit {
 		Assert.assertThat(result.getValue(0, "TITLE"), is("Boys be ambitious"));
 	}
 
-	@After
-	public void 색인삭제() {
-		indexService.deleteIndex(INDEX_NAME);
-		indexService.deleteIndex(INDEX_NAME2);
+	@Test
+	public void 복잡검색() throws IOException, ParseException {
+		QueryParameter query = new QueryParameter();
+		query.setIndex(ApplicationUtil.toList(INDEX_NAME + "," + INDEX_NAME2));
+		query.addQuery("CONTENT", "울라 OR 메렁", AnalyzerType.CJK, Occur.SHOULD);
+		query.addQuery("CONTENT", "동해", AnalyzerType.CJK, Occur.SHOULD);
+		query.setReturnRange(0, 5);
+		query.setReturnFields(ApplicationUtil.toList("TITLE,CONTENT"));
+
+		SearchService searcher = new SearchService();
+		SearchResult result = searcher.search(query);
+		Assert.assertThat(result.getTotalHits(), is(4));
+
+		// -------
+		query = new QueryParameter();
+		query.setIndex(ApplicationUtil.toList(INDEX_NAME + "," + INDEX_NAME2));
+		query.addQuery("CONTENT", "울라 OR 메렁", AnalyzerType.CJK, Occur.MUST);
+		query.addQuery("CONTENT", "동해", AnalyzerType.CJK, Occur.SHOULD);
+		query.setReturnRange(0, 5);
+		query.setReturnFields(ApplicationUtil.toList("TITLE,CONTENT"));
+
+		searcher = new SearchService();
+		result = searcher.search(query);
+		Assert.assertThat(result.getTotalHits(), is(2));
+
+		// -------
+		query = new QueryParameter();
+		query.setIndex(ApplicationUtil.toList(INDEX_NAME + "," + INDEX_NAME2));
+		query.addQuery("CONTENT", "울라 OR 메렁", AnalyzerType.CJK, Occur.MUST);
+		query.addQuery("CONTENT", "동해", AnalyzerType.CJK, Occur.MUST_NOT);
+		query.setReturnRange(0, 5);
+		query.setReturnFields(ApplicationUtil.toList("TITLE,CONTENT"));
+
+		searcher = new SearchService();
+		result = searcher.search(query);
+		Assert.assertThat(result.getTotalHits(), is(2));
+
+		// -------
+		query = new QueryParameter();
+		query.setIndex(ApplicationUtil.toList(INDEX_NAME + "," + INDEX_NAME2));
+		query.addQuery("", "(CONTENT:울라) OR (TITLE:Java)", AnalyzerType.CJK, Occur.MUST);
+		query.setReturnRange(0, 5);
+		query.setReturnFields(ApplicationUtil.toList("TITLE,CONTENT"));
+
+		searcher = new SearchService();
+		result = searcher.search(query);
+		Assert.assertThat(result.getTotalHits(), is(4));
+
+		printSearchResult(result);
+	}
+
+	private void printSearchResult(SearchResult result) {
+		System.out.printf("조회 문서수: %,d, 현재 페이지 문서수: %,d\n", result.getTotalHits(), result.getCurrentHits());
+		List<Map<String, String>> records = result.getRecords();
+		for (Map<String, String> r : records) {
+			System.out.printf("%s, %s\n", r.get("TITLE"), r.get("CONTENT"));
+		}
+	}
+
+	@AfterClass
+	public static void 색인삭제() {
+		IndexService.deleteIndex(INDEX_NAME);
+		IndexService.deleteIndex(INDEX_NAME2);
 		System.out.println("색인 삭제");
 	}
 }
