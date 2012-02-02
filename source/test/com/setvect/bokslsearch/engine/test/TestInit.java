@@ -7,7 +7,7 @@ import org.junit.AfterClass;
 import org.junit.BeforeClass;
 
 import com.setvect.DummyClass;
-import com.setvect.bokslsearch.engine.ApplicationBootup;
+import com.setvect.bokslsearch.engine.SearchAppBootup;
 
 /**
  * 테스트시 어플리케이션 시작(부트업), 종료 관련 구문 실행<br>
@@ -18,7 +18,7 @@ public class TestInit {
 	public static void load() {
 		URL a = DummyClass.class.getResource("");
 		File appHome = new File(a.getFile(), "../../../../");
-		ApplicationBootup.bootUp(appHome);
+		SearchAppBootup.bootUp(appHome);
 	}
 
 	@AfterClass

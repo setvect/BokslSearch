@@ -8,7 +8,7 @@
 
 <log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
 	<appender name="FILELOG" class="org.apache.log4j.DailyRollingFileAppender">
-  	<param name="File"   value="${APPLICATION_HOME}/log/rolling_log_file.log" />
+  	<param name="File"   value="${APPLICATION_HOME}/log/search_engine.log" />
     <param name="Append" value="true" />
 		<param name="DatePattern" value="'.'yyyy-MM-dd" />
     <layout class="org.apache.log4j.PatternLayout"> 
@@ -26,7 +26,7 @@
 
   <!-- Level Priority : DEBUG < INFO < WARN < ERROR < FATAL -->
 	<category name="com.setvect" additivity="false">
-		<priority value ="DEBUG" />
+		<priority value ="INFO" />
 	  <appender-ref ref="FILELOG"/>
 	  <appender-ref ref="CONSOLE"/>
 	</category>

@@ -14,7 +14,7 @@ import org.apache.commons.configuration.reloading.FileChangedReloadingStrategy;
 /**
  * 프로젝트 설정 정보 제공
  */
-public class ConfigProperty {
+public class SearchAppProperty {
 	private static PropertiesConfiguration config;
 
 	/**

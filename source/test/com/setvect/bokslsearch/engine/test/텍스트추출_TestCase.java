@@ -8,15 +8,8 @@ import java.io.File;
 import org.junit.Assert;
 import org.junit.Test;
 
-import com.setvect.bokslsearch.engine.extract.DocExtractor;
-import com.setvect.bokslsearch.engine.extract.DocxExtractor;
 import com.setvect.bokslsearch.engine.extract.ExtractorEnum;
 import com.setvect.bokslsearch.engine.extract.FileTextExtractor;
-import com.setvect.bokslsearch.engine.extract.PdfExtractor;
-import com.setvect.bokslsearch.engine.extract.PptExtractor;
-import com.setvect.bokslsearch.engine.extract.PptxExtractor;
-import com.setvect.bokslsearch.engine.extract.XlsExtractor;
-import com.setvect.bokslsearch.engine.extract.XlsxExtractor;
 
 public class 텍스트추출_TestCase extends TestInit {
 	@Test

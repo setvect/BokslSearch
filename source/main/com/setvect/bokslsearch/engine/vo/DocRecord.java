@@ -44,6 +44,23 @@ public class DocRecord {
 		/** 저장 유형 종류(색인 방식) */
 		private AnalyzerType analyzerType;
 
+		public DocField() {
+		}
+
+		/**
+		 * @param name
+		 *            필드 이름
+		 * @param value
+		 *            필드 값
+		 * @param type
+		 *            저장 유형
+		 */
+		public DocField(String name, String value, AnalyzerType type) {
+			this.name = name;
+			this.value = value;
+			this.analyzerType = type;
+		}
+
 		/**
 		 * 필드 이름
 		 * 

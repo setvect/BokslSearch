@@ -20,7 +20,7 @@ import org.apache.lucene.store.Directory;
 import org.apache.lucene.store.NIOFSDirectory;
 import org.apache.lucene.util.Version;
 
-import com.setvect.bokslsearch.engine.ApplicationUtil;
+import com.setvect.bokslsearch.engine.SearchAppUtil;
 import com.setvect.bokslsearch.engine.vo.DocRecord;
 import com.setvect.bokslsearch.engine.vo.DocRecord.DocField;
 import com.setvect.common.log.LogPrinter;
@@ -31,6 +31,21 @@ import com.setvect.common.util.StringUtilAd;
  * 색인 수행
  */
 public class IndexService {
+	/**
+	 * 색인 수행<br>
+	 * TODO 두개 이상의 스래드가 하나의 색인파일에 대해서 색인하는 것 고려 하지 않음
+	 * 
+	 * @param indexName
+	 *            색인 이름
+	 * @param data
+	 *            색인할 데이터
+	 * @throws IOException
+	 */
+	public static void indexDocument(String indexName, DocRecord data) throws IOException {
+		List<DocRecord> da = new ArrayList<DocRecord>();
+		da.add(data);
+		indexDocument(indexName, da);
+	}
 
 	/**
 	 * 색인 수행<br>
@@ -42,9 +57,9 @@ public class IndexService {
 	 *            색인할 데이터
 	 * @throws IOException
 	 */
-	public void indexDocument(String indexName, List<DocRecord> data) throws IOException {
+	public static void indexDocument(String indexName, List<DocRecord> data) throws IOException {
 
-		File indexFile = ApplicationUtil.getIndexDir(indexName);
+		File indexFile = SearchAppUtil.getIndexDir(indexName);
 		Directory index;
 		IndexWriter w = null;
 		Analyzer analyzer = new StandardAnalyzer(Version.LUCENE_35);
@@ -61,9 +76,12 @@ public class IndexService {
 					if (StringUtilAd.isEmpty(f.getValue())) {
 						continue;
 					}
+					// 저장용도
 					doc.add(new Field(f.getName(), f.getValue(), Field.Store.YES, Field.Index.NOT_ANALYZED));
+					// 색인 용도
 					Analyzer fieldAnalsyzer = f.getAnalyzerType().getAnalyzer();
 					TokenStream ts = fieldAnalsyzer.tokenStream("dummy", new StringReader(f.getValue()));
+
 					doc.add(new Field(f.getName(), ts));
 				}
 				w.addDocument(doc);
@@ -86,7 +104,7 @@ public class IndexService {
 	 *            색인 이름
 	 */
 	public static void deleteIndex(String indexName) {
-		File s = ApplicationUtil.getIndexDir(indexName);
+		File s = SearchAppUtil.getIndexDir(indexName);
 		try {
 			FileUtil.deleteDirectory(s);
 		} catch (IOException e) {
@@ -102,8 +120,8 @@ public class IndexService {
 	 * @return 색인 정보
 	 * @throws IOException
 	 */
-	public IndexMetadata getIndexInfo(String indexName) throws IOException {
-		File s = ApplicationUtil.getIndexDir(indexName);
+	public static IndexMetadata getIndexInfo(String indexName) throws IOException {
+		File s = SearchAppUtil.getIndexDir(indexName);
 		NIOFSDirectory index = new NIOFSDirectory(s);
 		IndexReader ir = null;
 
@@ -122,8 +140,6 @@ public class IndexService {
 				ir.close();
 			}
 		}
-
 		return result;
-
 	}
 }

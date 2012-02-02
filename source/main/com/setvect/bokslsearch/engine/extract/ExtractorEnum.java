@@ -54,4 +54,20 @@ public enum ExtractorEnum {
 	 * @return 텍스트 추출기
 	 */
 	public abstract FileTextExtractor getExtractor();
+
+	/**
+	 * 확장자에 따른 텍스트 추출기를 제공<br>
+	 * 
+	 * @param ext
+	 *            확장자 (예: doc, xlsx, pdf, ...)<br>
+	 * @return 지원 안되는 확장자는 null
+	 */
+	public static ExtractorEnum getExtractor(String ext) {
+		String t = ext.toUpperCase();
+		try {
+			return ExtractorEnum.valueOf(t);
+		} catch (Exception e) {
+			return null;
+		}
+	}
 }

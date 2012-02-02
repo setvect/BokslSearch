@@ -14,7 +14,8 @@ import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import com.setvect.bokslsearch.engine.ApplicationUtil;
+import com.setvect.bokslsearch.engine.SearchAppUtil;
+import com.setvect.bokslsearch.engine.config.SearchAppConstant;
 import com.setvect.bokslsearch.engine.index.AnalyzerType;
 import com.setvect.bokslsearch.engine.index.IndexMetadata;
 import com.setvect.bokslsearch.engine.index.IndexService;
@@ -73,15 +74,13 @@ public class 색인_검색_TestCase extends TestInit {
 		r3.addField(field2);
 		data.add(r3);
 
-		IndexService indexService = new IndexService();
-		indexService.indexDocument(INDEX_NAME, data);
-		indexService.indexDocument(INDEX_NAME2, data);
+		IndexService.indexDocument(INDEX_NAME, data);
+		IndexService.indexDocument(INDEX_NAME2, data);
 	}
 
 	@Test
 	public void 메타정보_조회() throws IOException {
-		IndexService indexService = new IndexService();
-		IndexMetadata result = indexService.getIndexInfo(INDEX_NAME);
+		IndexMetadata result = IndexService.getIndexInfo(INDEX_NAME);
 		System.out.println(result.toString());
 		Assert.assertThat(result.getDeleteCount(), is(0));
 		Assert.assertThat(result.getDocCount(), is(3));
@@ -96,10 +95,10 @@ public class 색인_검색_TestCase extends TestInit {
 	@Test
 	public void 검색() throws ParseException, IOException {
 		QueryParameter query = new QueryParameter();
-		query.setIndex(ApplicationUtil.toList(INDEX_NAME + "," + INDEX_NAME2));
+		query.setIndex(SearchAppUtil.toList(INDEX_NAME + "," + INDEX_NAME2));
 		query.addQuery("CONTENT", "울라 OR 메렁", AnalyzerType.CJK, Occur.MUST);
 		query.setReturnRange(0, 5);
-		query.setReturnFields(ApplicationUtil.toList("TITLE,TITLE_I,CONTENT,CONTENT_I"));
+		query.setReturnFields(SearchAppUtil.toList("TITLE,CONTENT"));
 
 		SearchService searcher = new SearchService();
 		SearchResult result = searcher.search(query);
@@ -117,11 +116,11 @@ public class 색인_검색_TestCase extends TestInit {
 	@Test
 	public void 복잡검색() throws IOException, ParseException {
 		QueryParameter query = new QueryParameter();
-		query.setIndex(ApplicationUtil.toList(INDEX_NAME + "," + INDEX_NAME2));
+		query.setIndex(SearchAppUtil.toList(INDEX_NAME + "," + INDEX_NAME2));
 		query.addQuery("CONTENT", "울라 OR 메렁", AnalyzerType.CJK, Occur.SHOULD);
 		query.addQuery("CONTENT", "동해", AnalyzerType.CJK, Occur.SHOULD);
 		query.setReturnRange(0, 5);
-		query.setReturnFields(ApplicationUtil.toList("TITLE,CONTENT"));
+		query.setReturnFields(SearchAppUtil.toList("TITLE,CONTENT"));
 
 		SearchService searcher = new SearchService();
 		SearchResult result = searcher.search(query);
@@ -129,11 +128,11 @@ public class 색인_검색_TestCase extends TestInit {
 
 		// -------
 		query = new QueryParameter();
-		query.setIndex(ApplicationUtil.toList(INDEX_NAME + "," + INDEX_NAME2));
+		query.setIndex(SearchAppUtil.toList(INDEX_NAME + "," + INDEX_NAME2));
 		query.addQuery("CONTENT", "울라 OR 메렁", AnalyzerType.CJK, Occur.MUST);
 		query.addQuery("CONTENT", "동해", AnalyzerType.CJK, Occur.SHOULD);
 		query.setReturnRange(0, 5);
-		query.setReturnFields(ApplicationUtil.toList("TITLE,CONTENT"));
+		query.setReturnFields(SearchAppUtil.toList("TITLE,CONTENT"));
 
 		searcher = new SearchService();
 		result = searcher.search(query);
@@ -141,11 +140,11 @@ public class 색인_검색_TestCase extends TestInit {
 
 		// -------
 		query = new QueryParameter();
-		query.setIndex(ApplicationUtil.toList(INDEX_NAME + "," + INDEX_NAME2));
+		query.setIndex(SearchAppUtil.toList(INDEX_NAME + "," + INDEX_NAME2));
 		query.addQuery("CONTENT", "울라 OR 메렁", AnalyzerType.CJK, Occur.MUST);
 		query.addQuery("CONTENT", "동해", AnalyzerType.CJK, Occur.MUST_NOT);
 		query.setReturnRange(0, 5);
-		query.setReturnFields(ApplicationUtil.toList("TITLE,CONTENT"));
+		query.setReturnFields(SearchAppUtil.toList("TITLE,CONTENT"));
 
 		searcher = new SearchService();
 		result = searcher.search(query);
@@ -153,10 +152,10 @@ public class 색인_검색_TestCase extends TestInit {
 
 		// -------
 		query = new QueryParameter();
-		query.setIndex(ApplicationUtil.toList(INDEX_NAME + "," + INDEX_NAME2));
+		query.setIndex(SearchAppUtil.toList(INDEX_NAME + "," + INDEX_NAME2));
 		query.addQuery("", "(CONTENT:울라) OR (TITLE:Java)", AnalyzerType.CJK, Occur.MUST);
 		query.setReturnRange(0, 5);
-		query.setReturnFields(ApplicationUtil.toList("TITLE,CONTENT"));
+		query.setReturnFields(SearchAppUtil.toList("TITLE,CONTENT"));
 
 		searcher = new SearchService();
 		result = searcher.search(query);
@@ -169,7 +168,8 @@ public class 색인_검색_TestCase extends TestInit {
 		System.out.printf("조회 문서수: %,d, 현재 페이지 문서수: %,d\n", result.getTotalHits(), result.getCurrentHits());
 		List<Map<String, String>> records = result.getRecords();
 		for (Map<String, String> r : records) {
-			System.out.printf("%s, %s\n", r.get("TITLE"), r.get("CONTENT"));
+			System.out.printf("%s, %s, %s, %s\n", r.get("TITLE"), r.get("CONTENT"),
+					r.get(SearchAppConstant.RESERVED_FIELD.DOC_ID), r.get(SearchAppConstant.RESERVED_FIELD.SCORE));
 		}
 	}
 

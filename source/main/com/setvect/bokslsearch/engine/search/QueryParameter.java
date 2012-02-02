@@ -80,9 +80,9 @@ public class QueryParameter {
 	}
 
 	/**
-	 * 결과 가져올 갯수
+	 * 검색 결과를 가져올 위치. 0 부터 시작
 	 * 
-	 * @return 결과 가져올 갯수
+	 * @return 검색 결과를 가져올 위치. 0 부터 시작
 	 */
 	public int getStartPosition() {
 		return startPosition;

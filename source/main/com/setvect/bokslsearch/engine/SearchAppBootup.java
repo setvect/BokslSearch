@@ -3,20 +3,20 @@ package com.setvect.bokslsearch.engine;
 import java.io.File;
 import java.net.URL;
 
-import com.setvect.bokslsearch.engine.config.ConfigProperty;
+import com.setvect.bokslsearch.engine.config.SearchAppProperty;
 import com.setvect.common.log.LogPrinter;
 
 /**
  * 어플리케이션에 기본적인 설정값, 로그설정등을 해준다. <br>
  */
-public class ApplicationBootup {
+public class SearchAppBootup {
 	private static final String CONFIG_LOG4J_XML = "/com/setvect/bokslsearch/engine/config/log4j.xml";
 	private static final String CONFIG_CONFIG_PROPERTIES = "/conf/search.config.properties";
 
 	/** 초기화 여부 */
 	private static boolean initialize = false;
 
-	public ApplicationBootup() {
+	public SearchAppBootup() {
 	}
 
 	/**
@@ -36,9 +36,9 @@ public class ApplicationBootup {
 		System.setProperty("APPLICATION_HOME", appHomeDir.getPath());
 
 		File configFile = new File(appHomeDir, CONFIG_CONFIG_PROPERTIES);
-		ConfigProperty.init(configFile);
+		SearchAppProperty.init(configFile);
 
-		URL log4j = ApplicationBootup.class.getResource(CONFIG_LOG4J_XML);
+		URL log4j = SearchAppBootup.class.getResource(CONFIG_LOG4J_XML);
 		LogPrinter.init(log4j);
 		LogPrinter.out.info("Log Manager Initialized");
 

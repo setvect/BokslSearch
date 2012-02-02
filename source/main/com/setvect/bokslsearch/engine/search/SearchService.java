@@ -22,7 +22,8 @@ import org.apache.lucene.store.Directory;
 import org.apache.lucene.store.NIOFSDirectory;
 import org.apache.lucene.util.Version;
 
-import com.setvect.bokslsearch.engine.ApplicationUtil;
+import com.setvect.bokslsearch.engine.SearchAppUtil;
+import com.setvect.bokslsearch.engine.config.SearchAppConstant;
 import com.setvect.bokslsearch.engine.search.QueryParameter.QueryPart;
 import com.setvect.bokslsearch.engine.vo.SearchResult;
 import com.setvect.common.log.LogPrinter;
@@ -44,7 +45,8 @@ public class SearchService {
 
 		IndexSearcher searcher = makeSearcher(searchCondtion.getIndex());
 
-		int numHits = searchCondtion.getStartPosition() + searchCondtion.getReturnCount();
+		int startPosition = searchCondtion.getStartPosition();
+		int numHits = startPosition + searchCondtion.getReturnCount();
 		TopScoreDocCollector collector = TopScoreDocCollector.create(numHits, false);
 		BooleanQuery totalQuery = parseQuery(searchCondtion.getQueries());
 		try {
@@ -54,7 +56,7 @@ public class SearchService {
 			ScoreDoc[] hits = topDocs.scoreDocs;
 			result.setTotalHits(topDocs.totalHits);
 
-			for (int i = 0; i < hits.length; i++) {
+			for (int i = startPosition; i < hits.length; i++) {
 				int docId = hits[i].doc;
 				Document d = searcher.doc(docId);
 				LogPrinter.out.debug("DOCID: " + docId + ", Document: " + d);
@@ -64,6 +66,9 @@ public class SearchService {
 					String v = d.get(f);
 					record.put(f, v);
 				}
+
+				record.put(SearchAppConstant.RESERVED_FIELD.DOC_ID, String.valueOf(hits[i].doc));
+				record.put(SearchAppConstant.RESERVED_FIELD.SCORE, String.valueOf(hits[i].score));
 				result.addRecord(record);
 			}
 			return result;
@@ -121,7 +126,7 @@ public class SearchService {
 	private IndexReader[] getIndexReaders(List<String> index) throws IOException {
 		List<IndexReader> indexReader = new ArrayList<IndexReader>();
 		for (String indexDirectory : index) {
-			File indexDir = ApplicationUtil.getIndexDir(indexDirectory);
+			File indexDir = SearchAppUtil.getIndexDir(indexDirectory);
 			Directory dir = NIOFSDirectory.open(indexDir);
 			IndexReader reader = IndexReader.open(dir, true);
 			indexReader.add(reader);
