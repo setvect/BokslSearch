@@ -3,8 +3,9 @@ package com.setvect.bokslsearch.engine;
 import java.io.File;
 import java.net.URL;
 
+import org.apache.log4j.xml.DOMConfigurator;
+
 import com.setvect.bokslsearch.engine.config.SearchAppProperty;
-import com.setvect.common.log.LogPrinter;
 
 /**
  * 어플리케이션에 기본적인 설정값, 로그설정등을 해준다. <br>
@@ -25,8 +26,10 @@ public class SearchAppBootup {
 	 * 
 	 * @param appHomeDir
 	 *            프로그램 홈 디렉토리
+	 * @param log4jInit
+	 *            Log4j 초기화(테스트 할때 사용)
 	 */
-	public static void bootUp(File appHomeDir) {
+	public static void bootUp(File appHomeDir, boolean log4jInit) {
 		if (initialize) {
 			return;
 			// throw new IllegalStateException("aready initialized!");
@@ -38,10 +41,11 @@ public class SearchAppBootup {
 		File configFile = new File(appHomeDir, CONFIG_CONFIG_PROPERTIES);
 		SearchAppProperty.init(configFile);
 
-		URL log4j = SearchAppBootup.class.getResource(CONFIG_LOG4J_XML);
-		LogPrinter.init(log4j);
-		LogPrinter.out.info("Log Manager Initialized");
-
-		LogPrinter.out.info("Started...");
+		if (log4jInit) {
+			URL log4j = SearchAppBootup.class.getResource(CONFIG_LOG4J_XML);
+			DOMConfigurator.configure(log4j);
+			SearchAppLogger.out.info("BokslSearchEngine Log Manager Initialized");
+		}
+		SearchAppLogger.out.info("BokslSearchEngine Started...");
 	}
 }

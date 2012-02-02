@@ -72,6 +72,7 @@
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<maven.test.skip>true</maven.test.skip>  
   </properties>
 
   <dependencies>
@@ -93,13 +94,19 @@
     	<artifactId>lucene-demo</artifactId>
     	<version>3.5.0</version>
     	<type>jar</type>
-    	<scope>compile</scope>
+    	<scope>test</scope>
     </dependency>
     
     <dependency>
     	<groupId>commons-configuration</groupId>
     	<artifactId>commons-configuration</artifactId>
     	<version>1.6</version>
+    	<exclusions>
+    		<exclusion>
+    			<artifactId>commons-beanutils</artifactId>
+    			<groupId>commons-beanutils</groupId>
+    		</exclusion>
+    	</exclusions>
     </dependency>    
     <dependency>
     	<groupId>log4j</groupId>
@@ -119,6 +126,10 @@
 		    <exclusion>
 		    	<artifactId>jms</artifactId>
 		    	<groupId>javax.jms</groupId>
+		    </exclusion>
+		    <exclusion>
+		    	<artifactId>mail</artifactId>
+		    	<groupId>javax.mail</groupId>
 		    </exclusion>
 		  </exclusions>
     </dependency>
@@ -158,6 +169,20 @@
     	<version>0.7.3</version>
     	<type>jar</type>
     	<scope>compile</scope>
+		  <exclusions>
+		    <exclusion>
+		      <groupId>bouncycastle</groupId>
+		      <artifactId>bcmail-jdk14</artifactId>
+		    </exclusion>
+		    <exclusion>
+		      <groupId>bouncycastle</groupId>
+		      <artifactId>bcprov-jdk14</artifactId>
+		    </exclusion>		    
+		    <exclusion>
+		      <groupId>org.jempbox</groupId>
+		      <artifactId>jempbox</artifactId>
+		    </exclusion>
+		  </exclusions>
     </dependency>
     <dependency>
     	<groupId>org.apache.poi</groupId>
@@ -165,6 +190,12 @@
     	<version>3.7</version>
     	<type>jar</type>
     	<scope>compile</scope>
+    	<exclusions>
+    		<exclusion>
+    			<artifactId>xml-apis</artifactId>
+    			<groupId>xml-apis</groupId>
+    		</exclusion>
+    	</exclusions>
     </dependency>
     <dependency>
     	<groupId>org.apache.poi</groupId>
@@ -172,6 +203,16 @@
     	<version>3.7</version>
     	<type>jar</type>
     	<scope>compile</scope>
+    	<exclusions>
+    		<exclusion>
+    			<artifactId>stax-api</artifactId>
+    			<groupId>stax</groupId>
+    		</exclusion>
+    		<exclusion>
+    			<artifactId>geronimo-stax-api_1.0_spec</artifactId>
+    			<groupId>org.apache.geronimo.specs</groupId>
+    		</exclusion>
+    	</exclusions>
     </dependency>
     <dependency>
     	<groupId>org.apache.poi</groupId>

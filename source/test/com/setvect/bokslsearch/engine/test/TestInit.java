@@ -18,7 +18,7 @@ public class TestInit {
 	public static void load() {
 		URL a = DummyClass.class.getResource("");
 		File appHome = new File(a.getFile(), "../../../../");
-		SearchAppBootup.bootUp(appHome);
+		SearchAppBootup.bootUp(appHome, true);
 	}
 
 	@AfterClass

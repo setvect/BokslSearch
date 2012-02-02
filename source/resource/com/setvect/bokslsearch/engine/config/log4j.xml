@@ -25,15 +25,9 @@
 	</appender>
 
   <!-- Level Priority : DEBUG < INFO < WARN < ERROR < FATAL -->
-	<category name="com.setvect" additivity="false">
+	<category name="com.setvect.bokslsearch" additivity="false">
 		<priority value ="INFO" />
 	  <appender-ref ref="FILELOG"/>
 	  <appender-ref ref="CONSOLE"/>
 	</category>
-
-	<root>
-		<priority value ="WARN" />
-	  <appender-ref ref="FILELOG"/>
-		<appender-ref ref="CONSOLE"/>
-  </root>
 </log4j:configuration>

@@ -22,11 +22,11 @@ import org.apache.lucene.store.Directory;
 import org.apache.lucene.store.NIOFSDirectory;
 import org.apache.lucene.util.Version;
 
+import com.setvect.bokslsearch.engine.SearchAppLogger;
 import com.setvect.bokslsearch.engine.SearchAppUtil;
 import com.setvect.bokslsearch.engine.config.SearchAppConstant;
 import com.setvect.bokslsearch.engine.search.QueryParameter.QueryPart;
 import com.setvect.bokslsearch.engine.vo.SearchResult;
-import com.setvect.common.log.LogPrinter;
 
 /**
  * 색인 수행
@@ -59,7 +59,7 @@ public class SearchService {
 			for (int i = startPosition; i < hits.length; i++) {
 				int docId = hits[i].doc;
 				Document d = searcher.doc(docId);
-				LogPrinter.out.debug("DOCID: " + docId + ", Document: " + d);
+				SearchAppLogger.out.debug("DOCID: " + docId + ", Document: " + d);
 				Map<String, String> record = new HashMap<String, String>();
 				List<String> returnFields = searchCondtion.getReturnFields();
 				for (String f : returnFields) {
@@ -111,7 +111,7 @@ public class SearchService {
 			totalQuery.add(q, qp.getOccur());
 		}
 
-		LogPrinter.out.debug("[Query] " + totalQuery.toString());
+		SearchAppLogger.out.debug("[Query] " + totalQuery.toString());
 		return totalQuery;
 	}
 

@@ -12,6 +12,7 @@ import org.apache.lucene.search.BooleanClause.Occur;
 import org.junit.AfterClass;
 import org.junit.Test;
 
+import com.setvect.bokslsearch.engine.SearchAppLogger;
 import com.setvect.bokslsearch.engine.SearchAppUtil;
 import com.setvect.bokslsearch.engine.extract.ExtractorEnum;
 import com.setvect.bokslsearch.engine.index.AnalyzerType;
@@ -21,7 +22,6 @@ import com.setvect.bokslsearch.engine.search.SearchService;
 import com.setvect.bokslsearch.engine.vo.DocRecord;
 import com.setvect.bokslsearch.engine.vo.SearchResult;
 import com.setvect.common.date.DateUtil;
-import com.setvect.common.log.LogPrinter;
 
 public class 파일색인_및_검색_TestCase extends TestInit {
 	private static final String INDEX_NAME = "FILE_INDEX";
@@ -47,7 +47,7 @@ public class 파일색인_및_검색_TestCase extends TestInit {
 				text = extractorEnum.getExtractor().extract(f);
 			}
 			else {
-				LogPrinter.out.info("파일[" + f.getAbsolutePath() + "]는 텍스트 추출 지원하지 않습니다.");
+				SearchAppLogger.out.info("파일[" + f.getAbsolutePath() + "]는 텍스트 추출 지원하지 않습니다.");
 			}
 			DocRecord fileInfo = new DocRecord();
 			fileInfo.addField(new DocRecord.DocField("NAME", f.getName(), AnalyzerType.CJK));

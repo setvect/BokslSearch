@@ -20,10 +20,10 @@ import org.apache.lucene.store.Directory;
 import org.apache.lucene.store.NIOFSDirectory;
 import org.apache.lucene.util.Version;
 
+import com.setvect.bokslsearch.engine.SearchAppLogger;
 import com.setvect.bokslsearch.engine.SearchAppUtil;
 import com.setvect.bokslsearch.engine.vo.DocRecord;
 import com.setvect.bokslsearch.engine.vo.DocRecord.DocField;
-import com.setvect.common.log.LogPrinter;
 import com.setvect.common.util.FileUtil;
 import com.setvect.common.util.StringUtilAd;
 
@@ -72,7 +72,7 @@ public class IndexService {
 				Document doc = new Document();
 				List<DocField> fs = r.getFields();
 				for (DocField f : fs) {
-					LogPrinter.out.debug("Index: " + f);
+					SearchAppLogger.out.debug("Index: " + f);
 					if (StringUtilAd.isEmpty(f.getValue())) {
 						continue;
 					}
@@ -108,7 +108,7 @@ public class IndexService {
 		try {
 			FileUtil.deleteDirectory(s);
 		} catch (IOException e) {
-			LogPrinter.out.warn(e);
+			SearchAppLogger.out.warn(e);
 		}
 	}
 
