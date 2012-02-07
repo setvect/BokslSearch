@@ -33,6 +33,12 @@ public class PdfExtractor implements FileTextExtractor {
 		} catch (IOException e) {
 			throw new RuntimeException(e);
 		} finally {
+			if (cosDoc != null) {
+				try {
+					cosDoc.close();
+				} catch (IOException e) {
+				}
+			}
 			if (is != null) {
 				try {
 					is.close();
