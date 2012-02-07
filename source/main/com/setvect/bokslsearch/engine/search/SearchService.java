@@ -16,6 +16,8 @@ import org.apache.lucene.search.BooleanQuery;
 import org.apache.lucene.search.IndexSearcher;
 import org.apache.lucene.search.Query;
 import org.apache.lucene.search.ScoreDoc;
+import org.apache.lucene.search.Sort;
+import org.apache.lucene.search.SortField;
 import org.apache.lucene.search.TopDocs;
 import org.apache.lucene.search.TopScoreDocCollector;
 import org.apache.lucene.store.Directory;
@@ -25,13 +27,16 @@ import org.apache.lucene.util.Version;
 import com.setvect.bokslsearch.engine.SearchAppLogger;
 import com.setvect.bokslsearch.engine.SearchAppUtil;
 import com.setvect.bokslsearch.engine.config.SearchAppConstant;
-import com.setvect.bokslsearch.engine.search.QueryParameter.QueryPart;
 import com.setvect.bokslsearch.engine.vo.SearchResult;
 
 /**
  * 색인 수행
  */
 public class SearchService {
+	// not instance
+	private SearchService() {
+	}
+
 	/**
 	 * 색인에 대한 질의 수행
 	 * 
@@ -41,19 +46,30 @@ public class SearchService {
 	 * @throws IOException
 	 * @throws ParseException
 	 */
-	public SearchResult search(QueryParameter searchCondtion) throws IOException, ParseException {
+	public static SearchResult search(QueryParameter searchCondtion) throws IOException, ParseException {
 
 		IndexSearcher searcher = makeSearcher(searchCondtion.getIndex());
 
 		int startPosition = searchCondtion.getStartPosition();
 		int numHits = startPosition + searchCondtion.getReturnCount();
-		TopScoreDocCollector collector = TopScoreDocCollector.create(numHits, false);
 		BooleanQuery totalQuery = parseQuery(searchCondtion.getQueries());
 		try {
-			searcher.search(totalQuery, collector);
+			ScoreDoc[] hits;
+			SortField sortField = searchCondtion.getSortField();
+			TopDocs topDocs;
+			if (sortField != null) {
+				Sort sort = new Sort(sortField);
+				topDocs = searcher.search(totalQuery, numHits, sort);
+				hits = topDocs.scoreDocs;
+			}
+			else {
+				TopScoreDocCollector collector = TopScoreDocCollector.create(numHits, false);
+				searcher.search(totalQuery, collector);
+				topDocs = collector.topDocs();
+				hits = topDocs.scoreDocs;
+			}
+
 			SearchResult result = new SearchResult();
-			TopDocs topDocs = collector.topDocs();
-			ScoreDoc[] hits = topDocs.scoreDocs;
 			result.setTotalHits(topDocs.totalHits);
 
 			for (int i = startPosition; i < hits.length; i++) {
@@ -87,7 +103,7 @@ public class SearchService {
 	 * @return 검색기
 	 * @throws IOException
 	 */
-	private IndexSearcher makeSearcher(List<String> index) throws IOException {
+	private static IndexSearcher makeSearcher(List<String> index) throws IOException {
 		IndexSearcher searcher = null;
 		IndexReader[] ir = getIndexReaders(index);
 		MultiReader multiReader = new MultiReader(ir);
@@ -103,7 +119,7 @@ public class SearchService {
 	 * @return 최종 질의
 	 * @throws ParseException
 	 */
-	private BooleanQuery parseQuery(List<QueryPart> queries) throws ParseException {
+	public static BooleanQuery parseQuery(List<QueryPart> queries) throws ParseException {
 		BooleanQuery totalQuery = new BooleanQuery();
 		for (QueryPart qp : queries) {
 			QueryParser queryParser = new QueryParser(Version.LUCENE_35, "", qp.getAnalyzer().getAnalyzer());
@@ -123,7 +139,7 @@ public class SearchService {
 	 * @return Index Reader
 	 * @throws IOException
 	 */
-	private IndexReader[] getIndexReaders(List<String> index) throws IOException {
+	private static IndexReader[] getIndexReaders(List<String> index) throws IOException {
 		List<IndexReader> indexReader = new ArrayList<IndexReader>();
 		for (String indexDirectory : index) {
 			File indexDir = SearchAppUtil.getIndexDir(indexDirectory);

@@ -68,8 +68,7 @@ public class 파일색인_및_검색_TestCase extends TestInit {
 		query.setReturnRange(0, 5);
 		query.setReturnFields(SearchAppUtil.toList("NAME,CONTENT,DATE"));
 
-		SearchService searcher = new SearchService();
-		SearchResult result = searcher.search(query);
+		SearchResult result = SearchService.search(query);
 
 		System.out.printf("조회 문서수: %,d, 현재 페이지 문서수: %,d\n", result.getTotalHits(), result.getCurrentHits());
 		List<Map<String, String>> records = result.getRecords();

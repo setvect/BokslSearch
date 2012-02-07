@@ -16,12 +16,16 @@ import org.apache.lucene.index.IndexReader;
 import org.apache.lucene.index.IndexReader.FieldOption;
 import org.apache.lucene.index.IndexWriter;
 import org.apache.lucene.index.IndexWriterConfig;
+import org.apache.lucene.queryParser.ParseException;
+import org.apache.lucene.search.BooleanQuery;
 import org.apache.lucene.store.Directory;
 import org.apache.lucene.store.NIOFSDirectory;
 import org.apache.lucene.util.Version;
 
 import com.setvect.bokslsearch.engine.SearchAppLogger;
 import com.setvect.bokslsearch.engine.SearchAppUtil;
+import com.setvect.bokslsearch.engine.search.QueryPart;
+import com.setvect.bokslsearch.engine.search.SearchService;
 import com.setvect.bokslsearch.engine.vo.DocRecord;
 import com.setvect.bokslsearch.engine.vo.DocRecord.DocField;
 import com.setvect.common.util.FileUtil;
@@ -31,6 +35,10 @@ import com.setvect.common.util.StringUtilAd;
  * 색인 수행
  */
 public class IndexService {
+	// not instance
+	private IndexService() {
+	}
+
 	/**
 	 * 색인 수행<br>
 	 * TODO 두개 이상의 스래드가 하나의 색인파일에 대해서 색인하는 것 고려 하지 않음
@@ -141,5 +149,48 @@ public class IndexService {
 			}
 		}
 		return result;
+	}
+
+	/**
+	 * 색인안에 있는 문서 삭제
+	 * 
+	 * @param indexName
+	 *            색인명
+	 * @param query
+	 *            삭제조건(조건에 해당되는 문서를 삭제)
+	 * @throws ParseException
+	 * @throws IOException
+	 */
+	public static void deleteDocument(String indexName, QueryPart query) throws IOException, ParseException {
+		List<QueryPart> condition = new ArrayList<QueryPart>();
+		condition.add(query);
+		deleteDocument(indexName, condition);
+	}
+
+	/**
+	 * 색인안에 있는 문서 삭제
+	 * 
+	 * @param indexName
+	 *            색인명
+	 * @param condition
+	 *            복합 삭제조건(조건에 해당되는 문서를 삭제)
+	 * @throws IOException
+	 * @throws ParseException
+	 */
+	public static void deleteDocument(String indexName, List<QueryPart> condition) throws IOException, ParseException {
+		File s = SearchAppUtil.getIndexDir(indexName);
+		NIOFSDirectory index = new NIOFSDirectory(s);
+		IndexWriter iw = null;
+		try {
+			Analyzer analyzer = new StandardAnalyzer(Version.LUCENE_35);
+			IndexWriterConfig config = new IndexWriterConfig(Version.LUCENE_35, analyzer);
+			iw = new IndexWriter(index, config);
+			BooleanQuery totalQuery = SearchService.parseQuery(condition);
+			iw.deleteDocuments(totalQuery);
+		} finally {
+			if (iw != null) {
+				iw.close();
+			}
+		}
 	}
 }

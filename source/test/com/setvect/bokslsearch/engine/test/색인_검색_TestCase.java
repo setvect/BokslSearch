@@ -20,6 +20,7 @@ import com.setvect.bokslsearch.engine.index.AnalyzerType;
 import com.setvect.bokslsearch.engine.index.IndexMetadata;
 import com.setvect.bokslsearch.engine.index.IndexService;
 import com.setvect.bokslsearch.engine.search.QueryParameter;
+import com.setvect.bokslsearch.engine.search.QueryPart;
 import com.setvect.bokslsearch.engine.search.SearchService;
 import com.setvect.bokslsearch.engine.vo.DocRecord;
 import com.setvect.bokslsearch.engine.vo.DocRecord.DocField;
@@ -85,11 +86,6 @@ public class 색인_검색_TestCase extends TestInit {
 		Assert.assertThat(result.getDeleteCount(), is(0));
 		Assert.assertThat(result.getDocCount(), is(3));
 		Assert.assertThat(result.getFieldName().size(), is(2));
-
-		List<String> a = result.getFieldName();
-		for (String c : a) {
-			System.out.println(c);
-		}
 	}
 
 	@Test
@@ -100,14 +96,13 @@ public class 색인_검색_TestCase extends TestInit {
 		query.setReturnRange(0, 5);
 		query.setReturnFields(SearchAppUtil.toList("TITLE,CONTENT"));
 
-		SearchService searcher = new SearchService();
-		SearchResult result = searcher.search(query);
+		SearchResult result = SearchService.search(query);
 		Assert.assertThat(result.getTotalHits(), is(2));
 		Assert.assertThat(result.getCurrentHits(), is(2));
 		Assert.assertThat(result.getValue(0, "TITLE"), is("Boys be ambitious"));
 
 		query.setReturnRange(0, 1);
-		result = searcher.search(query);
+		result = SearchService.search(query);
 		Assert.assertThat(result.getTotalHits(), is(2));
 		Assert.assertThat(result.getCurrentHits(), is(1));
 		Assert.assertThat(result.getValue(0, "TITLE"), is("Boys be ambitious"));
@@ -122,8 +117,7 @@ public class 색인_검색_TestCase extends TestInit {
 		query.setReturnRange(0, 5);
 		query.setReturnFields(SearchAppUtil.toList("TITLE,CONTENT"));
 
-		SearchService searcher = new SearchService();
-		SearchResult result = searcher.search(query);
+		SearchResult result = SearchService.search(query);
 		Assert.assertThat(result.getTotalHits(), is(4));
 
 		// -------
@@ -134,8 +128,7 @@ public class 색인_검색_TestCase extends TestInit {
 		query.setReturnRange(0, 5);
 		query.setReturnFields(SearchAppUtil.toList("TITLE,CONTENT"));
 
-		searcher = new SearchService();
-		result = searcher.search(query);
+		result = SearchService.search(query);
 		Assert.assertThat(result.getTotalHits(), is(2));
 
 		// -------
@@ -146,8 +139,7 @@ public class 색인_검색_TestCase extends TestInit {
 		query.setReturnRange(0, 5);
 		query.setReturnFields(SearchAppUtil.toList("TITLE,CONTENT"));
 
-		searcher = new SearchService();
-		result = searcher.search(query);
+		result = SearchService.search(query);
 		Assert.assertThat(result.getTotalHits(), is(2));
 
 		// -------
@@ -157,11 +149,44 @@ public class 색인_검색_TestCase extends TestInit {
 		query.setReturnRange(0, 5);
 		query.setReturnFields(SearchAppUtil.toList("TITLE,CONTENT"));
 
-		searcher = new SearchService();
-		result = searcher.search(query);
+		result = SearchService.search(query);
 		Assert.assertThat(result.getTotalHits(), is(4));
 
+		// printSearchResult(result);
+	}
+
+	@Test
+	public void 정렬() throws IOException, ParseException {
+		QueryParameter query = new QueryParameter();
+		query.setIndex(SearchAppUtil.toList(INDEX_NAME + "," + INDEX_NAME2));
+		query.addQuery("", "(CONTENT:울라) OR (TITLE:Java)", AnalyzerType.CJK, Occur.MUST);
+		query.setReturnRange(0, 5);
+		query.setReturnFields(SearchAppUtil.toList("TITLE,CONTENT"));
+		query.setSortField("TITLE", true);
+		SearchResult result = SearchService.search(query);
+
 		printSearchResult(result);
+
+		query = new QueryParameter();
+		query.setIndex(SearchAppUtil.toList(INDEX_NAME + "," + INDEX_NAME2));
+		query.addQuery("", "(CONTENT:울라) OR (TITLE:Java)", AnalyzerType.CJK, Occur.MUST);
+		query.setReturnRange(0, 5);
+		query.setReturnFields(SearchAppUtil.toList("TITLE,CONTENT"));
+		query.setSortField("TITLE", false);
+		result = SearchService.search(query);
+		printSearchResult(result);
+	}
+
+	@Test
+	public void 문서삭제() throws IOException, ParseException {
+		QueryPart query = new QueryPart("CONTENT", "울라 OR 메렁", AnalyzerType.CJK, Occur.SHOULD);
+		IndexService.deleteDocument(INDEX_NAME, query);
+
+		IndexMetadata result = IndexService.getIndexInfo(INDEX_NAME);
+		System.out.println(result.toString());
+		Assert.assertThat(result.getDeleteCount(), is(1));
+		Assert.assertThat(result.getDocCount(), is(2));
+		Assert.assertThat(result.getFieldName().size(), is(2));
 	}
 
 	private void printSearchResult(SearchResult result) {
