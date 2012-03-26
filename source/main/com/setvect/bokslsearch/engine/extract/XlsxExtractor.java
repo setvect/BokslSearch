@@ -4,6 +4,8 @@ import java.io.File;
 
 import org.apache.poi.xssf.extractor.XSSFExcelExtractor;
 
+import com.setvect.common.util.StringUtilAd;
+
 /**
  * TEXT √ﬂ√‚
  */
@@ -22,7 +24,7 @@ public class XlsxExtractor implements FileTextExtractor {
 			text = text.replace("null\t", "");
 			text = text.replace("null\n", "");
 			text = text.replace("\t", " ");
-			return text.trim();
+			return StringUtilAd.removeSpecialChar(text.trim());
 		} catch (Exception e) {
 			throw new RuntimeException(e);
 		}

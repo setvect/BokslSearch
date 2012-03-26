@@ -10,6 +10,8 @@ import org.pdfbox.pdfparser.PDFParser;
 import org.pdfbox.pdmodel.PDDocument;
 import org.pdfbox.util.PDFTextStripper;
 
+import com.setvect.common.util.StringUtilAd;
+
 /**
  * PDF -> TEXT √ﬂ√‚
  */
@@ -29,7 +31,7 @@ public class PdfExtractor implements FileTextExtractor {
 			cosDoc = parseDocument(is);
 			PDFTextStripper striper = new PDFTextStripper();
 			String text = striper.getText(new PDDocument(cosDoc));
-			return text.trim();
+			return StringUtilAd.removeSpecialChar(text.trim());
 		} catch (IOException e) {
 			throw new RuntimeException(e);
 		} finally {

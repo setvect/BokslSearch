@@ -5,6 +5,8 @@ import java.io.File;
 import org.apache.poi.POIXMLDocument;
 import org.apache.poi.xwpf.extractor.XWPFWordExtractor;
 
+import com.setvect.common.util.StringUtilAd;
+
 /**
  * TEXT √ﬂ√‚
  */
@@ -20,7 +22,7 @@ public class DocxExtractor implements FileTextExtractor {
 		try {
 			XWPFWordExtractor wd = new XWPFWordExtractor(POIXMLDocument.openPackage(docFile.getPath()));
 			String text = wd.getText();
-			return text.trim();
+			return StringUtilAd.removeSpecialChar(text.trim());
 		} catch (Exception e) {
 			throw new RuntimeException(e);
 		}

@@ -30,8 +30,9 @@ public class HighlightIt {
 		highlighter.setTextFragmenter(fragmenter);
 		TokenStream tokenStream = new CJKAnalyzer(Version.LUCENE_35).tokenStream("f", new StringReader(text));
 		String result = highlighter.getBestFragments(tokenStream, text, 3, "...");
-		
 		System.out.println(result);
+		
+		String[] s = highlighter.getBestFragments(tokenStream, "유럽", 3);
 		System.out.println("종료");
 	}
 }

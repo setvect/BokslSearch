@@ -5,7 +5,10 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 
+import org.apache.commons.lang.StringUtils;
 import org.apache.poi.hwpf.extractor.WordExtractor;
+
+import com.setvect.common.util.StringUtilAd;
 
 /**
  * TEXT √ﬂ√‚
@@ -24,7 +27,7 @@ public class DocExtractor implements FileTextExtractor {
 			is = new FileInputStream(docFile);
 			WordExtractor wd = new WordExtractor(is);
 			String text = wd.getText();
-			return text.trim();
+			return StringUtilAd.removeSpecialChar(text.trim());
 		} catch (IOException e) {
 			throw new RuntimeException(e);
 		} finally {

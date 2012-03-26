@@ -32,9 +32,9 @@ public class 텍스트추출_TestCase extends TestInit {
 	@Test
 	public void testDoc() {
 		FileTextExtractor extractor = ExtractorEnum.DOC.getExtractor();
-		String s = extractor.extract(new File("./doc_sample/sample.doc"));
+		String s = extractor.extract(new File("./doc_sample/1.doc"));
 		Assert.assertThat(s, is(notNullValue()));
-		// System.out.println(s);
+		 System.out.println(s);
 	}
 
 	@Test

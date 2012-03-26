@@ -7,6 +7,8 @@ import java.io.InputStream;
 
 import org.apache.poi.hslf.extractor.PowerPointExtractor;
 
+import com.setvect.common.util.StringUtilAd;
+
 /**
  * TEXT √ﬂ√‚
  */
@@ -24,7 +26,7 @@ public class PptExtractor implements FileTextExtractor {
 			is = new FileInputStream(xlsFile);
 			PowerPointExtractor extractor = new PowerPointExtractor(is);
 			String text = extractor.getText();
-			return text.trim();
+			return StringUtilAd.removeSpecialChar(text.trim());
 		} catch (IOException e) {
 			throw new RuntimeException(e);
 		} finally {

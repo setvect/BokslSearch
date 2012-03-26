@@ -5,6 +5,8 @@ import java.io.File;
 import org.apache.poi.xslf.XSLFSlideShow;
 import org.apache.poi.xslf.extractor.XSLFPowerPointExtractor;
 
+import com.setvect.common.util.StringUtilAd;
+
 /**
  * TEXT √ﬂ√‚
  */
@@ -20,7 +22,7 @@ public class PptxExtractor implements FileTextExtractor {
 		try {
 			XSLFPowerPointExtractor extractor = new XSLFPowerPointExtractor(new XSLFSlideShow(xlsxFile.getPath()));
 			String text = extractor.getText();
-			return text.trim();
+			 return StringUtilAd.removeSpecialChar(text.trim());
 		} catch (Exception e) {
 			throw new RuntimeException(e);
 		}
