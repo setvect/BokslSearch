@@ -34,13 +34,6 @@
 				<artifactId>maven-dependency-plugin</artifactId>
 				<version>2.3</version>
 				<executions>
-					<execution>
-						<id>copy-dependencies</id>
-						<phase>package</phase>
-						<goals>
-							<goal>copy-dependencies</goal>
-						</goals>
-					</execution>
 				</executions>
 				<configuration>
 					<outputDirectory>${basedir}/build/lib</outputDirectory>
@@ -52,19 +45,6 @@
         <artifactId>build-helper-maven-plugin</artifactId>
         <version>1.5</version>
         <executions>
-          <execution>
-            <id>add-source</id>
-            <phase>generate-sources</phase>
-            <goals>
-              <goal>add-source</goal>
-            </goals>
-            <configuration>
-            	<!-- 소스 드렉토리 더 추가 -->
-              <sources>
-                <source>${basedir}/source/resource/</source>
-              </sources>
-            </configuration>
-          </execution>
         </executions>
       </plugin>         
 		</plugins>		
