@@ -3,92 +3,92 @@ package com.setvect.bokslsearch.engine.index;
 import java.util.List;
 
 /**
- * ÀÎµ¦½º¿¡ ´ëÇÑ ¸ŞÅ¸Á¤º¸
+ * ì¸ë±ìŠ¤ì— ëŒ€í•œ ë©”íƒ€ì •ë³´
  */
 public class IndexMetadata {
-	/** »öÀÎ ¹®¼­ °Ç¼ö */
+	/** ìƒ‰ì¸ ë¬¸ì„œ ê±´ìˆ˜ */
 	private int docCount;
 
-	/** »èÁ¦ ¹®¼­ ¼ö */
+	/** ì‚­ì œ ë¬¸ì„œ ìˆ˜ */
 	private int deleteCount;
 
-	/** »öÀÎ ÇÊµå ÀÌ¸§ */
+	/** ìƒ‰ì¸ í•„ë“œ ì´ë¦„ */
 	private List<String> fieldName;
 	
-	/** »öÀÎ ÆÄÀÏ »çÀÌÁî */
+	/** ìƒ‰ì¸ íŒŒì¼ ì‚¬ì´ì¦ˆ */
 	private long size;
 
 	/**
-	 * »öÀÎ ¹®¼­ °Ç¼ö
+	 * ìƒ‰ì¸ ë¬¸ì„œ ê±´ìˆ˜
 	 * 
-	 * @return »öÀÎ ¹®¼­ °Ç¼ö
+	 * @return ìƒ‰ì¸ ë¬¸ì„œ ê±´ìˆ˜
 	 */
 	public int getDocCount() {
 		return docCount;
 	}
 
 	/**
-	 * »öÀÎ ¹®¼­ °Ç¼ö
+	 * ìƒ‰ì¸ ë¬¸ì„œ ê±´ìˆ˜
 	 * 
 	 * @param docCount
-	 *            »öÀÎ ¹®¼­ °Ç¼ö
+	 *            ìƒ‰ì¸ ë¬¸ì„œ ê±´ìˆ˜
 	 */
 	public void setDocCount(int docCount) {
 		this.docCount = docCount;
 	}
 
 	/**
-	 * »èÁ¦ ¹®¼­ ¼ö
+	 * ì‚­ì œ ë¬¸ì„œ ìˆ˜
 	 * 
-	 * @return »èÁ¦ ¹®¼­ ¼ö
+	 * @return ì‚­ì œ ë¬¸ì„œ ìˆ˜
 	 */
 	public int getDeleteCount() {
 		return deleteCount;
 	}
 
 	/**
-	 * »èÁ¦ ¹®¼­ ¼ö
+	 * ì‚­ì œ ë¬¸ì„œ ìˆ˜
 	 * 
 	 * @param deleteCount
-	 *            »èÁ¦ ¹®¼­ ¼ö
+	 *            ì‚­ì œ ë¬¸ì„œ ìˆ˜
 	 */
 	public void setDeleteCount(int deleteCount) {
 		this.deleteCount = deleteCount;
 	}
 
 	/**
-	 * »öÀÎ ÇÊµå ÀÌ¸§
+	 * ìƒ‰ì¸ í•„ë“œ ì´ë¦„
 	 * 
-	 * @return »öÀÎ ÇÊµå ÀÌ¸§
+	 * @return ìƒ‰ì¸ í•„ë“œ ì´ë¦„
 	 */
 	public List<String> getFieldName() {
 		return fieldName;
 	}
 
 	/**
-	 * »öÀÎ ÇÊµå ÀÌ¸§
+	 * ìƒ‰ì¸ í•„ë“œ ì´ë¦„
 	 * 
 	 * @param fieldName
-	 *            »öÀÎ ÇÊµå ÀÌ¸§
+	 *            ìƒ‰ì¸ í•„ë“œ ì´ë¦„
 	 */
 	public void setFieldName(List<String> fieldName) {
 		this.fieldName = fieldName;
 	}
 
 	/**
-	 * »öÀÎ ÆÄÀÏ »çÀÌÁî
+	 * ìƒ‰ì¸ íŒŒì¼ ì‚¬ì´ì¦ˆ
 	 * 
-	 * @return »öÀÎ ÆÄÀÏ »çÀÌÁî
+	 * @return ìƒ‰ì¸ íŒŒì¼ ì‚¬ì´ì¦ˆ
 	 */
 	public long getSize() {
 		return size;
 	}
 
 	/**
-	 * »öÀÎ ÆÄÀÏ »çÀÌÁî
+	 * ìƒ‰ì¸ íŒŒì¼ ì‚¬ì´ì¦ˆ
 	 * 
 	 * @param size
-	 *            »öÀÎ ÆÄÀÏ »çÀÌÁî
+	 *            ìƒ‰ì¸ íŒŒì¼ ì‚¬ì´ì¦ˆ
 	 */
 	public void setSize(long size) {
 		this.size = size;

@@ -7,41 +7,41 @@ import java.util.List;
 import com.setvect.bokslsearch.engine.index.AnalyzerType;
 
 /**
- * »öÀÎÀ» ÇÏ±â À§ÇÑ ·¹ÄÚµå(¹®¼­)
+ * ìƒ‰ì¸ì„ í•˜ê¸° ìœ„í•œ ë ˆì½”ë“œ(ë¬¸ì„œ)
  */
 public class DocRecord {
-	/** »öÀÎ ´ë»ó ÇÊµå */
+	/** ìƒ‰ì¸ ëŒ€ìƒ í•„ë“œ */
 	private List<DocField> fields = new ArrayList<DocRecord.DocField>();
 
 	/**
-	 * »öÀÎ ´ë»ó ÇÊµå
+	 * ìƒ‰ì¸ ëŒ€ìƒ í•„ë“œ
 	 * 
-	 * @return »öÀÎ ´ë»ó ÇÊµå
+	 * @return ìƒ‰ì¸ ëŒ€ìƒ í•„ë“œ
 	 */
 	public List<DocField> getFields() {
 		return Collections.unmodifiableList(fields);
 	}
 
 	/**
-	 * ÇÊµå µî·Ï
+	 * í•„ë“œ ë“±ë¡
 	 * 
 	 * @param field
-	 *            »öÀÎ ´ë»ó ÇÊµå
+	 *            ìƒ‰ì¸ ëŒ€ìƒ í•„ë“œ
 	 */
 	public void addField(DocField field) {
 		this.fields.add(field);
 	}
 
 	/**
-	 * »öÀÎ ´ë»ó ÇÊµå Á¤ÀÇ<br>
-	 * TODO »öÀÎ Å¸ÀÔ, ÀúÀå À¯Çü µî ¸ŞÅ¸Á¤º¸´Â ³ªÁß¿¡ ¼³Á¤
+	 * ìƒ‰ì¸ ëŒ€ìƒ í•„ë“œ ì •ì˜<br>
+	 * TODO ìƒ‰ì¸ íƒ€ì…, ì €ì¥ ìœ í˜• ë“± ë©”íƒ€ì •ë³´ëŠ” ë‚˜ì¤‘ì— ì„¤ì •
 	 */
 	public static class DocField {
-		/** ÇÊµå ÀÌ¸§ */
+		/** í•„ë“œ ì´ë¦„ */
 		private String name;
-		/** ÇÊµå °ª */
+		/** í•„ë“œ ê°’ */
 		private String value;
-		/** ÀúÀå À¯Çü Á¾·ù(»öÀÎ ¹æ½Ä) */
+		/** ì €ì¥ ìœ í˜• ì¢…ë¥˜(ìƒ‰ì¸ ë°©ì‹) */
 		private AnalyzerType analyzerType;
 
 		public DocField() {
@@ -49,11 +49,11 @@ public class DocRecord {
 
 		/**
 		 * @param name
-		 *            ÇÊµå ÀÌ¸§
+		 *            í•„ë“œ ì´ë¦„
 		 * @param value
-		 *            ÇÊµå °ª
+		 *            í•„ë“œ ê°’
 		 * @param type
-		 *            ÀúÀå À¯Çü
+		 *            ì €ì¥ ìœ í˜•
 		 */
 		public DocField(String name, String value, AnalyzerType type) {
 			this.name = name;
@@ -62,45 +62,45 @@ public class DocRecord {
 		}
 
 		/**
-		 * ÇÊµå ÀÌ¸§
+		 * í•„ë“œ ì´ë¦„
 		 * 
-		 * @return ÇÊµå ÀÌ¸§
+		 * @return í•„ë“œ ì´ë¦„
 		 */
 		public String getName() {
 			return name;
 		}
 
 		/**
-		 * ÇÊµå ÀÌ¸§
+		 * í•„ë“œ ì´ë¦„
 		 * 
 		 * @param name
-		 *            ÇÊµå ÀÌ¸§
+		 *            í•„ë“œ ì´ë¦„
 		 */
 		public void setName(String name) {
 			this.name = name;
 		}
 
 		/**
-		 * ÇÊµå °ª
+		 * í•„ë“œ ê°’
 		 * 
-		 * @return ÇÊµå °ª
+		 * @return í•„ë“œ ê°’
 		 */
 		public String getValue() {
 			return value;
 		}
 
 		/**
-		 * ÇÊµå °ª
+		 * í•„ë“œ ê°’
 		 * 
 		 * @param value
-		 *            ÇÊµå °ª
+		 *            í•„ë“œ ê°’
 		 */
 		public void setValue(String value) {
 			this.value = value;
 		}
 
 		/**
-		 * ÀúÀå À¯Çü Á¾·ù(»öÀÎ ¹æ½Ä)
+		 * ì €ì¥ ìœ í˜• ì¢…ë¥˜(ìƒ‰ì¸ ë°©ì‹)
 		 * 
 		 * @return the analyzerType
 		 */
@@ -109,7 +109,7 @@ public class DocRecord {
 		}
 
 		/**
-		 * ÀúÀå À¯Çü Á¾·ù(»öÀÎ ¹æ½Ä)
+		 * ì €ì¥ ìœ í˜• ì¢…ë¥˜(ìƒ‰ì¸ ë°©ì‹)
 		 * 
 		 * @param analyzerType
 		 *            the analyzerType to set

@@ -7,7 +7,7 @@ import org.apache.lucene.analysis.standard.StandardAnalyzer;
 import org.apache.lucene.util.Version;
 
 /**
- * ÇüºĞ¼® Á¾·ù
+ * í˜•ë¶„ì„ ì¢…ë¥˜
  */
 public enum AnalyzerType {
 	STANDARD {

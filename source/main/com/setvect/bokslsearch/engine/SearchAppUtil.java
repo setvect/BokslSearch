@@ -9,16 +9,16 @@ import org.apache.commons.collections.CollectionUtils;
 import com.setvect.bokslsearch.engine.config.SearchAppConstant;
 
 /**
- * ÇÁ·Î±×·¥¿¡ ÀÇÁ¸µÈ À¯Æ¿¼º ¸Ş¼Òµå Á¦°ø
+ * í”„ë¡œê·¸ë¨ì— ì˜ì¡´ëœ ìœ í‹¸ì„± ë©”ì†Œë“œ ì œê³µ
  */
 public class SearchAppUtil {
 
 	/**
-	 * »öÀÎ µğ·ºÅä¸® °æ·Î
+	 * ìƒ‰ì¸ ë””ë ‰í† ë¦¬ ê²½ë¡œ
 	 * 
 	 * @param indexName
-	 *            »öÀÎ ÀÌ¸§
-	 * @return »öÀÎ µğ·ºÅä¸® °æ·Î
+	 *            ìƒ‰ì¸ ì´ë¦„
+	 * @return ìƒ‰ì¸ ë””ë ‰í† ë¦¬ ê²½ë¡œ
 	 */
 	public static File getIndexDir(String indexName) {
 		File indexFile = new File(SearchAppConstant.INDEX_DIR, indexName);
@@ -26,11 +26,11 @@ public class SearchAppUtil {
 	}
 
 	/**
-	 * ÄŞ¸¶·Î ÅäÅ«À» ºĞ¸® ÇÏ¿© Àü´Ş
+	 * ì½¤ë§ˆë¡œ í† í°ì„ ë¶„ë¦¬ í•˜ì—¬ ì „ë‹¬
 	 * 
 	 * @param value
-	 *            ÄŞ¸¶·Î ºĞ¸®µÈ ¹®ÀÚ¿­
-	 * @return ¸®½ºÆ®
+	 *            ì½¤ë§ˆë¡œ ë¶„ë¦¬ëœ ë¬¸ìì—´
+	 * @return ë¦¬ìŠ¤íŠ¸
 	 */
 	public static List<String> toList(String value) {
 		List<String> result = new ArrayList<String>();

@@ -4,6 +4,6 @@ import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 
 @RunWith(Suite.class)
-@Suite.SuiteClasses({ »öÀÎ_°Ë»ö_TestCase.class, ÅØ½ºÆ®ÃßÃâ_TestCase.class, ÆÄÀÏ»öÀÎ_¹×_°Ë»ö_TestCase.class, ÇüºĞ¼®_TestCase.class })
+@Suite.SuiteClasses({ ìƒ‰ì¸_ê²€ìƒ‰_TestCase.class, í…ìŠ¤íŠ¸ì¶”ì¶œ_TestCase.class, íŒŒì¼ìƒ‰ì¸_ë°_ê²€ìƒ‰_TestCase.class, í˜•ë¶„ì„_TestCase.class })
 public class AllTests {
 }

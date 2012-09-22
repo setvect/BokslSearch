@@ -16,14 +16,14 @@ import org.apache.lucene.search.highlight.SimpleFragmenter;
 import org.apache.lucene.util.Version;
 
 public class HighlightIt {
-	private static final String text = "ºÏÀ§ 49¡Æ~54¢ª, µ¿°æ 14¡Æ~24¡Æ¿¡ °ÉÃÄ Áß¾ÓÀ¯·´ÀÇ ´ëÆò¿ø Áö¿ª¿¡ À§Ä¡ÇÏ°í ÀÖ´Ù. "
-			+ "(±¹ÅäÀÇ 75%°¡ ÇØ¹ß 200M ÀÌÇÏ) µ¿ÂÊÀ¸·Î´Â º§¶ó·ç½º, ¿ìÅ©¶óÀÌ³ª, ¸®Åõ¾Æ¾Æ ¹× ·¯½Ã¾Æ(Ä®¸®´Ñ±×¶óµå ÁÖ), ³²ÂÊÀ¸·Î´Â Ã¼ÄÚ ¹× ½½·Î¹ÙÅ°¾Æ, "
-			+ "¼­ÂÊÀ¸·Î´Â µ¶ÀÏ µî 7°³±¹°ú Á¢ÇÏ°í ÀÖÀ¸¸ç, ºÏÂÊÀ¸·Î´Â ¹ßÆ® ÇØ¿¡ Á¢ÇÑ´Ù. À¯·´ ¼öµµÀÎ ¹Ù¸£»ş¹Ù´Â Æú¶õµåÀÇ Áß¾ÓºÎ¿¡ À§Ä¡ÇÏ°í ÀÖ´Ù.";
+	private static final String text = "ë¶ìœ„ 49Â°~54Ëš, ë™ê²½ 14Â°~24Â°ì— ê±¸ì³ ì¤‘ì•™ìœ ëŸ½ì˜ ëŒ€í‰ì› ì§€ì—­ì— ìœ„ì¹˜í•˜ê³  ìˆë‹¤. "
+			+ "(êµ­í† ì˜ 75%ê°€ í•´ë°œ 200M ì´í•˜) ë™ìª½ìœ¼ë¡œëŠ” ë²¨ë¼ë£¨ìŠ¤, ìš°í¬ë¼ì´ë‚˜, ë¦¬íˆ¬ì•„ì•„ ë° ëŸ¬ì‹œì•„(ì¹¼ë¦¬ë‹Œê·¸ë¼ë“œ ì£¼), ë‚¨ìª½ìœ¼ë¡œëŠ” ì²´ì½” ë° ìŠ¬ë¡œë°”í‚¤ì•„, "
+			+ "ì„œìª½ìœ¼ë¡œëŠ” ë…ì¼ ë“± 7ê°œêµ­ê³¼ ì ‘í•˜ê³  ìˆìœ¼ë©°, ë¶ìª½ìœ¼ë¡œëŠ” ë°œíŠ¸ í•´ì— ì ‘í•œë‹¤. ìœ ëŸ½ ìˆ˜ë„ì¸ ë°”ë¥´ìƒ¤ë°”ëŠ” í´ë€ë“œì˜ ì¤‘ì•™ë¶€ì— ìœ„ì¹˜í•˜ê³  ìˆë‹¤.";
 
 	public static void main(String[] args) throws IOException, ParseException, InvalidTokenOffsetsException,
 			org.apache.lucene.queryParser.ParseException {
 		QueryParser queryParser = new QueryParser(Version.LUCENE_35, "", new CJKAnalyzer(Version.LUCENE_35));
-		Query q = queryParser.parse("f:À¯·´");
+		Query q = queryParser.parse("f:ìœ ëŸ½");
 		QueryScorer scorer = new QueryScorer(q);
 		Highlighter highlighter = new Highlighter(scorer);
 		Fragmenter fragmenter = new SimpleFragmenter(40);
@@ -32,7 +32,7 @@ public class HighlightIt {
 		String result = highlighter.getBestFragments(tokenStream, text, 3, "...");
 		System.out.println(result);
 		
-		String[] s = highlighter.getBestFragments(tokenStream, "À¯·´", 3);
-		System.out.println("Á¾·á");
+		String[] s = highlighter.getBestFragments(tokenStream, "ìœ ëŸ½", 3);
+		System.out.println("ì¢…ë£Œ");
 	}
 }

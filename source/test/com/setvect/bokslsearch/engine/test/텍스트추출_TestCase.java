@@ -11,7 +11,7 @@ import org.junit.Test;
 import com.setvect.bokslsearch.engine.extract.ExtractorEnum;
 import com.setvect.bokslsearch.engine.extract.FileTextExtractor;
 
-public class ÅØ½ºÆ®ÃßÃâ_TestCase extends TestInit {
+public class í…ìŠ¤íŠ¸ì¶”ì¶œ_TestCase extends TestInit {
 	@Test
 	public void testPdf() {
 		FileTextExtractor extractor = ExtractorEnum.PDF.getExtractor();

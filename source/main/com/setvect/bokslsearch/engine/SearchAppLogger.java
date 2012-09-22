@@ -3,7 +3,7 @@ package com.setvect.bokslsearch.engine;
 import org.apache.log4j.Logger;
 
 /**
- * ·Î±× °Ë»ö
+ * ë¡œê·¸ ê²€ìƒ‰
  */
 public class SearchAppLogger {
 	public static Logger out = Logger.getLogger(SearchAppLogger.class);

@@ -7,14 +7,14 @@ import org.apache.poi.xssf.extractor.XSSFExcelExtractor;
 import com.setvect.common.util.StringUtilAd;
 
 /**
- * TEXT ÃßÃâ
+ * TEXT ì¶”ì¶œ
  */
 public class XlsxExtractor implements FileTextExtractor {
 	/**
-	 * ÅØ½ºÆ® ÃßÃâ
+	 * í…ìŠ¤íŠ¸ ì¶”ì¶œ
 	 * 
 	 * @param xlsxFile
-	 *            ÆÄÀÏ
+	 *            íŒŒì¼
 	 * @return TEXT
 	 */
 	public String extract(File xlsxFile) {

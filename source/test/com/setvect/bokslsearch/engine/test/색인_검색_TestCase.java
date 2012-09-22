@@ -26,14 +26,14 @@ import com.setvect.bokslsearch.engine.vo.DocRecord;
 import com.setvect.bokslsearch.engine.vo.DocRecord.DocField;
 import com.setvect.bokslsearch.engine.vo.SearchResult;
 
-public class »öÀÎ_°Ë»ö_TestCase extends TestInit {
+public class ìƒ‰ì¸_ê²€ìƒ‰_TestCase extends TestInit {
 
 	private static final String INDEX_NAME = "test";
 
 	private static final String INDEX_NAME2 = "test2";
 
 	@BeforeClass
-	public static void ¹®ÀÚ¿­»öÀÎ() throws IOException {
+	public static void ë¬¸ìì—´ìƒ‰ì¸() throws IOException {
 
 		List<DocRecord> data = new ArrayList<DocRecord>();
 		DocRecord r1 = new DocRecord();
@@ -44,7 +44,7 @@ public class »öÀÎ_°Ë»ö_TestCase extends TestInit {
 		r1.addField(field1);
 		DocField field2 = new DocField();
 		field2.setName("CONTENT");
-		field2.setValue("¿ï¶ó¶ó¶ó ¸Ş··");
+		field2.setValue("ìš¸ë¼ë¼ë¼ ë©”ë ");
 		field2.setAnalyzerType(AnalyzerType.CJK);
 		r1.addField(field2);
 		data.add(r1);
@@ -52,12 +52,12 @@ public class »öÀÎ_°Ë»ö_TestCase extends TestInit {
 		DocRecord r2 = new DocRecord();
 		field1 = new DocField();
 		field1.setName("TITLE");
-		field1.setValue("¾Ö±¹°¡");
+		field1.setValue("ì• êµ­ê°€");
 		field1.setAnalyzerType(AnalyzerType.CJK);
 		r2.addField(field1);
 		field2 = new DocField();
 		field2.setName("CONTENT");
-		field2.setValue("µ¿ÇØ¹°°ú ¹éµÎ»êÀÌ ¸¶¸£°í ´âÅä·Ï ÇÏ´À´ÔÀÌ º¸¿ìÇÏ»ç ¿ì¸®³ª¶ó ¸¸¼¼");
+		field2.setValue("ë™í•´ë¬¼ê³¼ ë°±ë‘ì‚°ì´ ë§ˆë¥´ê³  ë‹³í† ë¡ í•˜ëŠë‹˜ì´ ë³´ìš°í•˜ì‚¬ ìš°ë¦¬ë‚˜ë¼ ë§Œì„¸");
 		field2.setAnalyzerType(AnalyzerType.CJK);
 		r2.addField(field2);
 		data.add(r2);
@@ -80,7 +80,7 @@ public class »öÀÎ_°Ë»ö_TestCase extends TestInit {
 	}
 
 	@Test
-	public void ¸ŞÅ¸Á¤º¸_Á¶È¸() throws IOException {
+	public void ë©”íƒ€ì •ë³´_ì¡°íšŒ() throws IOException {
 		IndexMetadata result = IndexService.getIndexInfo(INDEX_NAME);
 		System.out.println(result.toString());
 		Assert.assertThat(result.getDeleteCount(), is(0));
@@ -89,10 +89,10 @@ public class »öÀÎ_°Ë»ö_TestCase extends TestInit {
 	}
 
 	@Test
-	public void °Ë»ö() throws ParseException, IOException {
+	public void ê²€ìƒ‰() throws ParseException, IOException {
 		QueryParameter query = new QueryParameter();
 		query.setIndex(SearchAppUtil.toList(INDEX_NAME + "," + INDEX_NAME2));
-		query.addQuery("CONTENT", "¿ï¶ó OR ¸Ş··", AnalyzerType.CJK, Occur.MUST);
+		query.addQuery("CONTENT", "ìš¸ë¼ OR ë©”ë ", AnalyzerType.CJK, Occur.MUST);
 		query.setReturnRange(0, 5);
 		query.setReturnFields(SearchAppUtil.toList("TITLE,CONTENT"));
 
@@ -109,11 +109,11 @@ public class »öÀÎ_°Ë»ö_TestCase extends TestInit {
 	}
 
 	@Test
-	public void º¹Àâ°Ë»ö() throws IOException, ParseException {
+	public void ë³µì¡ê²€ìƒ‰() throws IOException, ParseException {
 		QueryParameter query = new QueryParameter();
 		query.setIndex(SearchAppUtil.toList(INDEX_NAME + "," + INDEX_NAME2));
-		query.addQuery("CONTENT", "¿ï¶ó OR ¸Ş··", AnalyzerType.CJK, Occur.SHOULD);
-		query.addQuery("CONTENT", "µ¿ÇØ", AnalyzerType.CJK, Occur.SHOULD);
+		query.addQuery("CONTENT", "ìš¸ë¼ OR ë©”ë ", AnalyzerType.CJK, Occur.SHOULD);
+		query.addQuery("CONTENT", "ë™í•´", AnalyzerType.CJK, Occur.SHOULD);
 		query.setReturnRange(0, 5);
 		query.setReturnFields(SearchAppUtil.toList("TITLE,CONTENT"));
 
@@ -123,8 +123,8 @@ public class »öÀÎ_°Ë»ö_TestCase extends TestInit {
 		// -------
 		query = new QueryParameter();
 		query.setIndex(SearchAppUtil.toList(INDEX_NAME + "," + INDEX_NAME2));
-		query.addQuery("CONTENT", "¿ï¶ó OR ¸Ş··", AnalyzerType.CJK, Occur.MUST);
-		query.addQuery("CONTENT", "µ¿ÇØ", AnalyzerType.CJK, Occur.SHOULD);
+		query.addQuery("CONTENT", "ìš¸ë¼ OR ë©”ë ", AnalyzerType.CJK, Occur.MUST);
+		query.addQuery("CONTENT", "ë™í•´", AnalyzerType.CJK, Occur.SHOULD);
 		query.setReturnRange(0, 5);
 		query.setReturnFields(SearchAppUtil.toList("TITLE,CONTENT"));
 
@@ -134,8 +134,8 @@ public class »öÀÎ_°Ë»ö_TestCase extends TestInit {
 		// -------
 		query = new QueryParameter();
 		query.setIndex(SearchAppUtil.toList(INDEX_NAME + "," + INDEX_NAME2));
-		query.addQuery("CONTENT", "¿ï¶ó OR ¸Ş··", AnalyzerType.CJK, Occur.MUST);
-		query.addQuery("CONTENT", "µ¿ÇØ", AnalyzerType.CJK, Occur.MUST_NOT);
+		query.addQuery("CONTENT", "ìš¸ë¼ OR ë©”ë ", AnalyzerType.CJK, Occur.MUST);
+		query.addQuery("CONTENT", "ë™í•´", AnalyzerType.CJK, Occur.MUST_NOT);
 		query.setReturnRange(0, 5);
 		query.setReturnFields(SearchAppUtil.toList("TITLE,CONTENT"));
 
@@ -145,7 +145,7 @@ public class »öÀÎ_°Ë»ö_TestCase extends TestInit {
 		// -------
 		query = new QueryParameter();
 		query.setIndex(SearchAppUtil.toList(INDEX_NAME + "," + INDEX_NAME2));
-		query.addQuery("", "(CONTENT:¿ï¶ó) OR (TITLE:Java)", AnalyzerType.CJK, Occur.MUST);
+		query.addQuery("", "(CONTENT:ìš¸ë¼) OR (TITLE:Java)", AnalyzerType.CJK, Occur.MUST);
 		query.setReturnRange(0, 5);
 		query.setReturnFields(SearchAppUtil.toList("TITLE,CONTENT"));
 
@@ -156,10 +156,10 @@ public class »öÀÎ_°Ë»ö_TestCase extends TestInit {
 	}
 
 	@Test
-	public void Á¤·Ä() throws IOException, ParseException {
+	public void ì •ë ¬() throws IOException, ParseException {
 		QueryParameter query = new QueryParameter();
 		query.setIndex(SearchAppUtil.toList(INDEX_NAME + "," + INDEX_NAME2));
-		query.addQuery("", "(CONTENT:¿ï¶ó) OR (TITLE:Java)", AnalyzerType.CJK, Occur.MUST);
+		query.addQuery("", "(CONTENT:ìš¸ë¼) OR (TITLE:Java)", AnalyzerType.CJK, Occur.MUST);
 		query.setReturnRange(0, 5);
 		query.setReturnFields(SearchAppUtil.toList("TITLE,CONTENT"));
 		query.setSortField("TITLE", true);
@@ -169,7 +169,7 @@ public class »öÀÎ_°Ë»ö_TestCase extends TestInit {
 
 		query = new QueryParameter();
 		query.setIndex(SearchAppUtil.toList(INDEX_NAME + "," + INDEX_NAME2));
-		query.addQuery("", "(CONTENT:¿ï¶ó) OR (TITLE:Java)", AnalyzerType.CJK, Occur.MUST);
+		query.addQuery("", "(CONTENT:ìš¸ë¼) OR (TITLE:Java)", AnalyzerType.CJK, Occur.MUST);
 		query.setReturnRange(0, 5);
 		query.setReturnFields(SearchAppUtil.toList("TITLE,CONTENT"));
 		query.setSortField("TITLE", false);
@@ -178,8 +178,8 @@ public class »öÀÎ_°Ë»ö_TestCase extends TestInit {
 	}
 
 	@Test
-	public void ¹®¼­»èÁ¦() throws IOException, ParseException {
-		QueryPart query = new QueryPart("CONTENT", "¿ï¶ó OR ¸Ş··", AnalyzerType.CJK, Occur.SHOULD);
+	public void ë¬¸ì„œì‚­ì œ() throws IOException, ParseException {
+		QueryPart query = new QueryPart("CONTENT", "ìš¸ë¼ OR ë©”ë ", AnalyzerType.CJK, Occur.SHOULD);
 		IndexService.deleteDocument(INDEX_NAME, query);
 
 		IndexMetadata result = IndexService.getIndexInfo(INDEX_NAME);
@@ -190,7 +190,7 @@ public class »öÀÎ_°Ë»ö_TestCase extends TestInit {
 	}
 
 	private void printSearchResult(SearchResult result) {
-		System.out.printf("Á¶È¸ ¹®¼­¼ö: %,d, ÇöÀç ÆäÀÌÁö ¹®¼­¼ö: %,d\n", result.getTotalHits(), result.getCurrentHits());
+		System.out.printf("ì¡°íšŒ ë¬¸ì„œìˆ˜: %,d, í˜„ì¬ í˜ì´ì§€ ë¬¸ì„œìˆ˜: %,d\n", result.getTotalHits(), result.getCurrentHits());
 		List<Map<String, String>> records = result.getRecords();
 		for (Map<String, String> r : records) {
 			System.out.printf("%s, %s, %s, %s\n", r.get("TITLE"), r.get("CONTENT"),
@@ -199,9 +199,9 @@ public class »öÀÎ_°Ë»ö_TestCase extends TestInit {
 	}
 
 	@AfterClass
-	public static void »öÀÎ»èÁ¦() {
+	public static void ìƒ‰ì¸ì‚­ì œ() {
 		IndexService.deleteIndex(INDEX_NAME);
 		IndexService.deleteIndex(INDEX_NAME2);
-		System.out.println("»öÀÎ »èÁ¦");
+		System.out.println("ìƒ‰ì¸ ì‚­ì œ");
 	}
 }

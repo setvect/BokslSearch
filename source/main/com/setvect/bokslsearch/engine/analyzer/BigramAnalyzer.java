@@ -9,7 +9,7 @@ import org.apache.lucene.analysis.cjk.CJKTokenizer;
 import org.apache.lucene.util.Version;
 
 /**
- * ¹®ÀÚ¿­À» BigramÀ¸·Î ºĞ¸® ½ÃÅ´
+ * ë¬¸ìì—´ì„ Bigramìœ¼ë¡œ ë¶„ë¦¬ ì‹œí‚´
  */
 public class BigramAnalyzer extends StopwordAnalyzerBase {
 

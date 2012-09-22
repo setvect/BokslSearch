@@ -30,7 +30,7 @@ import com.setvect.bokslsearch.engine.config.SearchAppConstant;
 import com.setvect.bokslsearch.engine.vo.SearchResult;
 
 /**
- * »öÀÎ ¼öÇà
+ * ìƒ‰ì¸ ìˆ˜í–‰
  */
 public class SearchService {
 	// not instance
@@ -38,11 +38,11 @@ public class SearchService {
 	}
 
 	/**
-	 * »öÀÎ¿¡ ´ëÇÑ ÁúÀÇ ¼öÇà
+	 * ìƒ‰ì¸ì— ëŒ€í•œ ì§ˆì˜ ìˆ˜í–‰
 	 * 
 	 * @param searchCondtion
-	 *            °Ë»ö Á¶°Ç
-	 * @return Á¶È¸ °á°ú
+	 *            ê²€ìƒ‰ ì¡°ê±´
+	 * @return ì¡°íšŒ ê²°ê³¼
 	 * @throws IOException
 	 * @throws ParseException
 	 */
@@ -96,11 +96,11 @@ public class SearchService {
 	}
 
 	/**
-	 * ÀÎµ¦½º¿¡ ´ëÇÑ °Ë»ö Á¶°Ç ´ëÀÔ
+	 * ì¸ë±ìŠ¤ì— ëŒ€í•œ ê²€ìƒ‰ ì¡°ê±´ ëŒ€ì…
 	 * 
 	 * @param index
-	 *            °Ë»ö ´ë»ó ÀÎµ¦½º
-	 * @return °Ë»ö±â
+	 *            ê²€ìƒ‰ ëŒ€ìƒ ì¸ë±ìŠ¤
+	 * @return ê²€ìƒ‰ê¸°
 	 * @throws IOException
 	 */
 	private static IndexSearcher makeSearcher(List<String> index) throws IOException {
@@ -112,11 +112,11 @@ public class SearchService {
 	}
 
 	/**
-	 * ¿©·¯°³ÀÇ ÁúÀÇ Á¶°Ç¿¡ ´ëÇØ ÇÏ³ªÀÇ Á¶°ÇÀ¸·Î º´ÇÕ ÇÑ´Ù.
+	 * ì—¬ëŸ¬ê°œì˜ ì§ˆì˜ ì¡°ê±´ì— ëŒ€í•´ í•˜ë‚˜ì˜ ì¡°ê±´ìœ¼ë¡œ ë³‘í•© í•œë‹¤.
 	 * 
 	 * @param queries
-	 *            ÁúÀÇ Á¶°Ç
-	 * @return ÃÖÁ¾ ÁúÀÇ
+	 *            ì§ˆì˜ ì¡°ê±´
+	 * @return ìµœì¢… ì§ˆì˜
 	 * @throws ParseException
 	 */
 	public static BooleanQuery parseQuery(List<QueryPart> queries) throws ParseException {
@@ -132,10 +132,10 @@ public class SearchService {
 	}
 
 	/**
-	 * ÀÎµ¦½º ÀÌ¸§¿¡ ´ëÇÑ Reader¸¦ Á¦°ø
+	 * ì¸ë±ìŠ¤ ì´ë¦„ì— ëŒ€í•œ Readerë¥¼ ì œê³µ
 	 * 
 	 * @param index
-	 *            ÀÎµ¦½º ÀÌ¸§
+	 *            ì¸ë±ìŠ¤ ì´ë¦„
 	 * @return Index Reader
 	 * @throws IOException
 	 */

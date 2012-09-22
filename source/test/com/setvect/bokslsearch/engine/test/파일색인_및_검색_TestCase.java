@@ -23,17 +23,17 @@ import com.setvect.bokslsearch.engine.vo.DocRecord;
 import com.setvect.bokslsearch.engine.vo.SearchResult;
 import com.setvect.common.date.DateUtil;
 
-public class ÆÄÀÏ»öÀÎ_¹×_°Ë»ö_TestCase extends TestInit {
+public class íŒŒì¼ìƒ‰ì¸_ë°_ê²€ìƒ‰_TestCase extends TestInit {
 	private static final String INDEX_NAME = "FILE_INDEX";
 
 	/**
-	 * Ã·ºÎÆÄÀÏ »öÀÎ
+	 * ì²¨ë¶€íŒŒì¼ ìƒ‰ì¸
 	 * 
 	 * @throws IOException
 	 * @throws ParseException
 	 */
 	@Test
-	public void ÆÄÀÏ»öÀÎand°Ë»ö() throws IOException, ParseException {
+	public void íŒŒì¼ìƒ‰ì¸andê²€ìƒ‰() throws IOException, ParseException {
 		File dir = new File("doc_sample");
 		File[] docs = dir.listFiles();
 		for (File f : docs) {
@@ -47,7 +47,7 @@ public class ÆÄÀÏ»öÀÎ_¹×_°Ë»ö_TestCase extends TestInit {
 				text = extractorEnum.getExtractor().extract(f);
 			}
 			else {
-				SearchAppLogger.out.info("ÆÄÀÏ[" + f.getAbsolutePath() + "]´Â ÅØ½ºÆ® ÃßÃâ Áö¿øÇÏÁö ¾Ê½À´Ï´Ù.");
+				SearchAppLogger.out.info("íŒŒì¼[" + f.getAbsolutePath() + "]ëŠ” í…ìŠ¤íŠ¸ ì¶”ì¶œ ì§€ì›í•˜ì§€ ì•ŠìŠµë‹ˆë‹¤.");
 			}
 			DocRecord fileInfo = new DocRecord();
 			fileInfo.addField(new DocRecord.DocField("NAME", f.getName(), AnalyzerType.CJK));
@@ -64,13 +64,13 @@ public class ÆÄÀÏ»öÀÎ_¹×_°Ë»ö_TestCase extends TestInit {
 
 		QueryParameter query = new QueryParameter();
 		query.setIndex(SearchAppUtil.toList(INDEX_NAME));
-		query.addQuery("CONTENT", "ºòµ¥ÀÌÅÍ", AnalyzerType.CJK, Occur.MUST);
+		query.addQuery("CONTENT", "ë¹…ë°ì´í„°", AnalyzerType.CJK, Occur.MUST);
 		query.setReturnRange(0, 5);
 		query.setReturnFields(SearchAppUtil.toList("NAME,CONTENT,DATE"));
 
 		SearchResult result = SearchService.search(query);
 
-		System.out.printf("Á¶È¸ ¹®¼­¼ö: %,d, ÇöÀç ÆäÀÌÁö ¹®¼­¼ö: %,d\n", result.getTotalHits(), result.getCurrentHits());
+		System.out.printf("ì¡°íšŒ ë¬¸ì„œìˆ˜: %,d, í˜„ì¬ í˜ì´ì§€ ë¬¸ì„œìˆ˜: %,d\n", result.getTotalHits(), result.getCurrentHits());
 		List<Map<String, String>> records = result.getRecords();
 		System.out.println("###########################");
 		for (Map<String, String> r : records) {
@@ -79,8 +79,8 @@ public class ÆÄÀÏ»öÀÎ_¹×_°Ë»ö_TestCase extends TestInit {
 	}
 
 	@AfterClass
-	public static void »öÀÎ»èÁ¦() {
+	public static void ìƒ‰ì¸ì‚­ì œ() {
 		IndexService.deleteIndex(INDEX_NAME);
-		System.out.println("»öÀÎ »èÁ¦");
+		System.out.println("ìƒ‰ì¸ ì‚­ì œ");
 	}
 }

@@ -13,14 +13,14 @@ import org.pdfbox.util.PDFTextStripper;
 import com.setvect.common.util.StringUtilAd;
 
 /**
- * PDF -> TEXT ÃßÃâ
+ * PDF -> TEXT ì¶”ì¶œ
  */
 public class PdfExtractor implements FileTextExtractor {
 	/**
-	 * ÅØ½ºÆ® ÃßÃâ
+	 * í…ìŠ¤íŠ¸ ì¶”ì¶œ
 	 * 
 	 * @param pdfFile
-	 *            PDF ÆÄÀÏ
+	 *            PDF íŒŒì¼
 	 * @return TEXT
 	 */
 	public String extract(File pdfFile) {

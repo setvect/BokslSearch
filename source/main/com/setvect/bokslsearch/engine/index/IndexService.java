@@ -32,7 +32,7 @@ import com.setvect.common.util.FileUtil;
 import com.setvect.common.util.StringUtilAd;
 
 /**
- * »öÀÎ ¼öÇà
+ * ìƒ‰ì¸ ìˆ˜í–‰
  */
 public class IndexService {
 	// not instance
@@ -40,13 +40,13 @@ public class IndexService {
 	}
 
 	/**
-	 * »öÀÎ ¼öÇà<br>
-	 * TODO µÎ°³ ÀÌ»óÀÇ ½º·¡µå°¡ ÇÏ³ªÀÇ »öÀÎÆÄÀÏ¿¡ ´ëÇØ¼­ »öÀÎÇÏ´Â °Í °í·Á ÇÏÁö ¾ÊÀ½
+	 * ìƒ‰ì¸ ìˆ˜í–‰<br>
+	 * TODO ë‘ê°œ ì´ìƒì˜ ìŠ¤ë˜ë“œê°€ í•˜ë‚˜ì˜ ìƒ‰ì¸íŒŒì¼ì— ëŒ€í•´ì„œ ìƒ‰ì¸í•˜ëŠ” ê²ƒ ê³ ë ¤ í•˜ì§€ ì•ŠìŒ
 	 * 
 	 * @param indexName
-	 *            »öÀÎ ÀÌ¸§
+	 *            ìƒ‰ì¸ ì´ë¦„
 	 * @param data
-	 *            »öÀÎÇÒ µ¥ÀÌÅÍ
+	 *            ìƒ‰ì¸í•  ë°ì´í„°
 	 * @throws IOException
 	 */
 	public static void indexDocument(String indexName, DocRecord data) throws IOException {
@@ -56,13 +56,13 @@ public class IndexService {
 	}
 
 	/**
-	 * »öÀÎ ¼öÇà<br>
-	 * TODO µÎ°³ ÀÌ»óÀÇ ½º·¡µå°¡ ÇÏ³ªÀÇ »öÀÎÆÄÀÏ¿¡ ´ëÇØ¼­ »öÀÎÇÏ´Â °Í °í·Á ÇÏÁö ¾ÊÀ½
+	 * ìƒ‰ì¸ ìˆ˜í–‰<br>
+	 * TODO ë‘ê°œ ì´ìƒì˜ ìŠ¤ë˜ë“œê°€ í•˜ë‚˜ì˜ ìƒ‰ì¸íŒŒì¼ì— ëŒ€í•´ì„œ ìƒ‰ì¸í•˜ëŠ” ê²ƒ ê³ ë ¤ í•˜ì§€ ì•ŠìŒ
 	 * 
 	 * @param indexName
-	 *            »öÀÎ ÀÌ¸§
+	 *            ìƒ‰ì¸ ì´ë¦„
 	 * @param data
-	 *            »öÀÎÇÒ µ¥ÀÌÅÍ
+	 *            ìƒ‰ì¸í•  ë°ì´í„°
 	 * @throws IOException
 	 */
 	public static void indexDocument(String indexName, List<DocRecord> data) throws IOException {
@@ -84,9 +84,9 @@ public class IndexService {
 					if (StringUtilAd.isEmpty(f.getValue())) {
 						continue;
 					}
-					// ÀúÀå¿ëµµ
+					// ì €ì¥ìš©ë„
 					doc.add(new Field(f.getName(), f.getValue(), Field.Store.YES, Field.Index.NOT_ANALYZED));
-					// »öÀÎ ¿ëµµ
+					// ìƒ‰ì¸ ìš©ë„
 					Analyzer fieldAnalsyzer = f.getAnalyzerType().getAnalyzer();
 					TokenStream ts = fieldAnalsyzer.tokenStream("dummy", new StringReader(f.getValue()));
 
@@ -105,11 +105,11 @@ public class IndexService {
 	}
 
 	/**
-	 * ÀÎµ¦½º »èÁ¦<br>
-	 * TODO ÀÎµ¦½º, °Ë»öÁß¿¡ »èÁ¦µÇ´Â »óÈ² °í·Á ÇÏÁö ¾ÊÀ½
+	 * ì¸ë±ìŠ¤ ì‚­ì œ<br>
+	 * TODO ì¸ë±ìŠ¤, ê²€ìƒ‰ì¤‘ì— ì‚­ì œë˜ëŠ” ìƒí™© ê³ ë ¤ í•˜ì§€ ì•ŠìŒ
 	 * 
 	 * @param indexName
-	 *            »öÀÎ ÀÌ¸§
+	 *            ìƒ‰ì¸ ì´ë¦„
 	 */
 	public static void deleteIndex(String indexName) {
 		File s = SearchAppUtil.getIndexDir(indexName);
@@ -121,11 +121,11 @@ public class IndexService {
 	}
 
 	/**
-	 * »öÀÎ Á¤º¸
+	 * ìƒ‰ì¸ ì •ë³´
 	 * 
 	 * @param indexName
-	 *            »öÀÎ ÀÌ¸§
-	 * @return »öÀÎ Á¤º¸
+	 *            ìƒ‰ì¸ ì´ë¦„
+	 * @return ìƒ‰ì¸ ì •ë³´
 	 * @throws IOException
 	 */
 	public static IndexMetadata getIndexInfo(String indexName) throws IOException {
@@ -152,12 +152,12 @@ public class IndexService {
 	}
 
 	/**
-	 * »öÀÎ¾È¿¡ ÀÖ´Â ¹®¼­ »èÁ¦
+	 * ìƒ‰ì¸ì•ˆì— ìˆëŠ” ë¬¸ì„œ ì‚­ì œ
 	 * 
 	 * @param indexName
-	 *            »öÀÎ¸í
+	 *            ìƒ‰ì¸ëª…
 	 * @param query
-	 *            »èÁ¦Á¶°Ç(Á¶°Ç¿¡ ÇØ´çµÇ´Â ¹®¼­¸¦ »èÁ¦)
+	 *            ì‚­ì œì¡°ê±´(ì¡°ê±´ì— í•´ë‹¹ë˜ëŠ” ë¬¸ì„œë¥¼ ì‚­ì œ)
 	 * @throws ParseException
 	 * @throws IOException
 	 */
@@ -168,12 +168,12 @@ public class IndexService {
 	}
 
 	/**
-	 * »öÀÎ¾È¿¡ ÀÖ´Â ¹®¼­ »èÁ¦
+	 * ìƒ‰ì¸ì•ˆì— ìˆëŠ” ë¬¸ì„œ ì‚­ì œ
 	 * 
 	 * @param indexName
-	 *            »öÀÎ¸í
+	 *            ìƒ‰ì¸ëª…
 	 * @param condition
-	 *            º¹ÇÕ »èÁ¦Á¶°Ç(Á¶°Ç¿¡ ÇØ´çµÇ´Â ¹®¼­¸¦ »èÁ¦)
+	 *            ë³µí•© ì‚­ì œì¡°ê±´(ì¡°ê±´ì— í•´ë‹¹ë˜ëŠ” ë¬¸ì„œë¥¼ ì‚­ì œ)
 	 * @throws IOException
 	 * @throws ParseException
 	 */

@@ -1,7 +1,7 @@
 package com.setvect.bokslsearch.engine.extract;
 
 /**
- * ÆÄÀÏ Á¾·ù(È®ÀåÀÚ)º°·Î ÅØ½ºÆ®¸¦ ÃßÃâ ÇÒ ¼ö ÀÖ´Â ÀÎ½ºÅÏ½º¸¦ Á¦°ø
+ * íŒŒì¼ ì¢…ë¥˜(í™•ì¥ì)ë³„ë¡œ í…ìŠ¤íŠ¸ë¥¼ ì¶”ì¶œ í•  ìˆ˜ ìˆëŠ” ì¸ìŠ¤í„´ìŠ¤ë¥¼ ì œê³µ
  */
 public enum ExtractorEnum {
 	DOC {
@@ -49,18 +49,18 @@ public enum ExtractorEnum {
 	},
 	;
 	/**
-	 * ÅØ½ºÆ® ÃßÃâ±â
+	 * í…ìŠ¤íŠ¸ ì¶”ì¶œê¸°
 	 * 
-	 * @return ÅØ½ºÆ® ÃßÃâ±â
+	 * @return í…ìŠ¤íŠ¸ ì¶”ì¶œê¸°
 	 */
 	public abstract FileTextExtractor getExtractor();
 
 	/**
-	 * È®ÀåÀÚ¿¡ µû¸¥ ÅØ½ºÆ® ÃßÃâ±â¸¦ Á¦°ø<br>
+	 * í™•ì¥ìì— ë”°ë¥¸ í…ìŠ¤íŠ¸ ì¶”ì¶œê¸°ë¥¼ ì œê³µ<br>
 	 * 
 	 * @param ext
-	 *            È®ÀåÀÚ (¿¹: doc, xlsx, pdf, ...)<br>
-	 * @return Áö¿ø ¾ÈµÇ´Â È®ÀåÀÚ´Â null
+	 *            í™•ì¥ì (ì˜ˆ: doc, xlsx, pdf, ...)<br>
+	 * @return ì§€ì› ì•ˆë˜ëŠ” í™•ì¥ìëŠ” null
 	 */
 	public static ExtractorEnum getExtractor(String ext) {
 		String t = ext.toUpperCase();

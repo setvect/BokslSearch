@@ -6,9 +6,9 @@ import java.io.Reader;
 import org.apache.lucene.analysis.Tokenizer;
 
 /**
- * ÀÔ·ÂµÇ´Â ¹®ÀåÀ» ÀĞ¾î TokenÀ¸·Î ¸¸µé¾î return split ±âÁØÀº ½ºÆäÀÌ½º, Æ¯¼ö¹®ÀÚ, ÇÑ±Û / ¿µ¹®,¼ıÀÚ
+ * ì…ë ¥ë˜ëŠ” ë¬¸ì¥ì„ ì½ì–´ Tokenìœ¼ë¡œ ë§Œë“¤ì–´ return split ê¸°ì¤€ì€ ìŠ¤í˜ì´ìŠ¤, íŠ¹ìˆ˜ë¬¸ì, í•œê¸€ / ì˜ë¬¸,ìˆ«ì
  * 
- * @author Àå¿ë¼®, 2011.07.16 need4spd@naver.com
+ * @author ì¥ìš©ì„, 2011.07.16 need4spd@naver.com
  */
 
 public class BigramTokenizer extends Tokenizer {

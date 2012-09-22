@@ -2,8 +2,8 @@ package com.setvect;
 
 
 /**
- * ¾îÇÃ¸®ÄÉÀÌ¼Ç ·çÆ® µð·ºÅä¸¦ Ã£±â À§ÇÑ Å¬·¡½º<br>
- * ¾Æ·¡¿Í °°ÀÌ »ç¿ëÇÏ¸é ¾îÇÃ¸®ÄÉÀÌ¼ÇÀÇ µð·ºÅä¸® °æ·Î¸¦ ¾Ë ¼ö ÀÖÀ½ <br>
+ * ì–´í”Œë¦¬ì¼€ì´ì…˜ ë£¨íŠ¸ ë””ë ‰í† ë¥¼ ì°¾ê¸° ìœ„í•œ í´ëž˜ìŠ¤<br>
+ * ì•„ëž˜ì™€ ê°™ì´ ì‚¬ìš©í•˜ë©´ ì–´í”Œë¦¬ì¼€ì´ì…˜ì˜ ë””ë ‰í† ë¦¬ ê²½ë¡œë¥¼ ì•Œ ìˆ˜ ìžˆìŒ <br>
  * URL a = DummyClass.class.getResource("");<br>
  * File appHome = new File(a.getFile(), "../../../../");<br>
  */

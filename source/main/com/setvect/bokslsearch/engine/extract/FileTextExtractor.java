@@ -3,14 +3,14 @@ package com.setvect.bokslsearch.engine.extract;
 import java.io.File;
 
 /**
- * Ã·ºÎÆÄÀÏ¿¡ ÅØ½ºÆ® ÃßÃâ
+ * ì²¨ë¶€íŒŒì¼ì— í…ìŠ¤íŠ¸ ì¶”ì¶œ
  */
 public interface FileTextExtractor {
 	/**
-	 * ÅØ½ºÆ® ÃßÃâ
+	 * í…ìŠ¤íŠ¸ ì¶”ì¶œ
 	 * 
 	 * @param file
-	 *            ¹®¼­ ÆÄÀÏ
+	 *            ë¬¸ì„œ íŒŒì¼
 	 * @return TEXT
 	 */
 	public String extract(File file);

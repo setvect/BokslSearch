@@ -8,14 +8,14 @@ import org.apache.poi.xwpf.extractor.XWPFWordExtractor;
 import com.setvect.common.util.StringUtilAd;
 
 /**
- * TEXT ÃßÃâ
+ * TEXT ì¶”ì¶œ
  */
 public class DocxExtractor implements FileTextExtractor {
 	/**
-	 * ÅØ½ºÆ® ÃßÃâ
+	 * í…ìŠ¤íŠ¸ ì¶”ì¶œ
 	 * 
 	 * @param docFile
-	 *            ÆÄÀÏ
+	 *            íŒŒì¼
 	 * @return TEXT
 	 */
 	public String extract(File docFile) {

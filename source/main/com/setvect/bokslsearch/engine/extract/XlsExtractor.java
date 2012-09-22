@@ -11,14 +11,14 @@ import org.apache.poi.poifs.filesystem.POIFSFileSystem;
 import com.setvect.common.util.StringUtilAd;
 
 /**
- * TEXT ÃßÃâ
+ * TEXT ì¶”ì¶œ
  */
 public class XlsExtractor implements FileTextExtractor {
 	/**
-	 * ÅØ½ºÆ® ÃßÃâ
+	 * í…ìŠ¤íŠ¸ ì¶”ì¶œ
 	 * 
 	 * @param xlsFile
-	 *            ÆÄÀÏ
+	 *            íŒŒì¼
 	 * @return TEXT
 	 */
 	public String extract(File xlsFile) {

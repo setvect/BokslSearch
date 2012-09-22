@@ -3,16 +3,16 @@ package com.setvect.bokslsearch.engine.config;
 import java.io.File;
 
 /**
- * ÇÁ·Î±×·¥¿¡¼­ »ç¿ëµÇ´Â »ó¼ö °ªµéÀÇ ¸ğÀ½ <br>
- * ¼Ó¼º°ª ¿äÃ» Àü¿¡ SearchAppProperty Å¬·¡½º°¡ ÃÊ±âÈ­ µÇ¾î¾ßµÊ <br>
+ * í”„ë¡œê·¸ë¨ì—ì„œ ì‚¬ìš©ë˜ëŠ” ìƒìˆ˜ ê°’ë“¤ì˜ ëª¨ìŒ <br>
+ * ì†ì„±ê°’ ìš”ì²­ ì „ì— SearchAppProperty í´ë˜ìŠ¤ê°€ ì´ˆê¸°í™” ë˜ì–´ì•¼ë¨ <br>
  * 
  * @version $Id$
  */
 public class SearchAppConstant {
-	/** ÇÁ·Î±×·¥ È¨ µğ·ºÅä¸® */
+	/** í”„ë¡œê·¸ë¨ í™ˆ ë””ë ‰í† ë¦¬ */
 	public static final String APP_HOME_DIR = System.getProperty("APPLICATION_HOME");
 
-	/** »öÀÎ µğ·ºÅä¸® °æ·Î */
+	/** ìƒ‰ì¸ ë””ë ‰í† ë¦¬ ê²½ë¡œ */
 	public static final File INDEX_DIR;
 	static {
 		String t = SearchAppProperty.getString("com.setvect.bokslsearch.engine.index_dir");
@@ -25,13 +25,13 @@ public class SearchAppConstant {
 	}
 
 	/**
-	 * °Ë»ö °á°ú ¿¹¾à ÇÊµå¸í
+	 * ê²€ìƒ‰ ê²°ê³¼ ì˜ˆì•½ í•„ë“œëª…
 	 */
 	public static class RESERVED_FIELD {
-		/** Á¤È®µµ */
+		/** ì •í™•ë„ */
 		public static final String SCORE = "_SCORE";
 
-		/** ¹®¼­¾ÆÀÌµğ */
+		/** ë¬¸ì„œì•„ì´ë”” */
 		public static final String DOC_ID = "_DOC_ID";
 	}
 }

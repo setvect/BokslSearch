@@ -9,75 +9,75 @@ import org.apache.lucene.search.BooleanClause.Occur;
 import com.setvect.bokslsearch.engine.index.AnalyzerType;
 
 /**
- * °Ë»ö ÁúÀÇ<br>
- * Á¤·Ä ÇÊµå´Â ÇÏ³ª¸¸ ¼±ÅÃÇÒ ¼ö ÀÖÀ½<br>
- * Á¤·Ä Á¶°ÇÀÌ ¾ø´Â °æ¿ì Á¤È®µµ ¼øÀ¸·Î Á¤·Ä
+ * ê²€ìƒ‰ ì§ˆì˜<br>
+ * ì •ë ¬ í•„ë“œëŠ” í•˜ë‚˜ë§Œ ì„ íƒí•  ìˆ˜ ìˆìŒ<br>
+ * ì •ë ¬ ì¡°ê±´ì´ ì—†ëŠ” ê²½ìš° ì •í™•ë„ ìˆœìœ¼ë¡œ ì •ë ¬
  */
 public class QueryParameter {
-	/** °Ë»ö ´ë»ó »öÀÎ */
+	/** ê²€ìƒ‰ ëŒ€ìƒ ìƒ‰ì¸ */
 	private List<String> index;
 
-	/** Á¶È¸ ÇÊµå */
+	/** ì¡°íšŒ í•„ë“œ */
 	private List<String> returnFields;
 
-	/** °Ë»ö °á°ú¸¦ °¡Á®¿Ã À§Ä¡. 0 ºÎÅÍ ½ÃÀÛ */
+	/** ê²€ìƒ‰ ê²°ê³¼ë¥¼ ê°€ì ¸ì˜¬ ìœ„ì¹˜. 0 ë¶€í„° ì‹œì‘ */
 	private int startPosition;
 
-	/** °á°ú °¡Á®¿Ã °¹¼ö */
+	/** ê²°ê³¼ ê°€ì ¸ì˜¬ ê°¯ìˆ˜ */
 	private int returnCount;
 
-	/** ÁúÀÇ Á¶°Ç */
+	/** ì§ˆì˜ ì¡°ê±´ */
 	private List<QueryPart> queries = new ArrayList<QueryPart>();
 
-	/** Á¤·Ä Á¶°Ç */
+	/** ì •ë ¬ ì¡°ê±´ */
 	private SortField sortField;
 
 	/**
-	 * °Ë»ö ´ë»ó »öÀÎ
+	 * ê²€ìƒ‰ ëŒ€ìƒ ìƒ‰ì¸
 	 * 
-	 * @return °Ë»ö ´ë»ó »öÀÎ
+	 * @return ê²€ìƒ‰ ëŒ€ìƒ ìƒ‰ì¸
 	 */
 	public List<String> getIndex() {
 		return index;
 	}
 
 	/**
-	 * °Ë»ö ´ë»ó »öÀÎ
+	 * ê²€ìƒ‰ ëŒ€ìƒ ìƒ‰ì¸
 	 * 
 	 * @param index
-	 *            °Ë»ö ´ë»ó »öÀÎ
+	 *            ê²€ìƒ‰ ëŒ€ìƒ ìƒ‰ì¸
 	 */
 	public void setIndex(List<String> index) {
 		this.index = index;
 	}
 
 	/**
-	 * °Ë»ö °á°ú¸¦ °¡Á®¿Ã À§Ä¡. 0 ºÎÅÍ ½ÃÀÛ
+	 * ê²€ìƒ‰ ê²°ê³¼ë¥¼ ê°€ì ¸ì˜¬ ìœ„ì¹˜. 0 ë¶€í„° ì‹œì‘
 	 * 
-	 * @return °Ë»ö °á°ú¸¦ °¡Á®¿Ã À§Ä¡. 0 ºÎÅÍ ½ÃÀÛ
+	 * @return ê²€ìƒ‰ ê²°ê³¼ë¥¼ ê°€ì ¸ì˜¬ ìœ„ì¹˜. 0 ë¶€í„° ì‹œì‘
 	 */
 	public List<String> getReturnFields() {
 		return returnFields;
 	}
 
 	/**
-	 * °Ë»ö °á°ú¸¦ °¡Á®¿Ã À§Ä¡. 0 ºÎÅÍ ½ÃÀÛ
+	 * ê²€ìƒ‰ ê²°ê³¼ë¥¼ ê°€ì ¸ì˜¬ ìœ„ì¹˜. 0 ë¶€í„° ì‹œì‘
 	 * 
 	 * @param returnFields
-	 *            °Ë»ö °á°ú¸¦ °¡Á®¿Ã À§Ä¡. 0 ºÎÅÍ ½ÃÀÛ
+	 *            ê²€ìƒ‰ ê²°ê³¼ë¥¼ ê°€ì ¸ì˜¬ ìœ„ì¹˜. 0 ë¶€í„° ì‹œì‘
 	 */
 	public void setReturnFields(List<String> returnFields) {
 		this.returnFields = returnFields;
 	}
 
 	/**
-	 * °á°ú °¡Á®¿Ã °¹¼ö<br>
-	 * °á°ú¸¦ °¡Á®¿Ã ¹üÀ§´Â startPosition ~ startPosition + returnCount - 1
+	 * ê²°ê³¼ ê°€ì ¸ì˜¬ ê°¯ìˆ˜<br>
+	 * ê²°ê³¼ë¥¼ ê°€ì ¸ì˜¬ ë²”ìœ„ëŠ” startPosition ~ startPosition + returnCount - 1
 	 * 
 	 * @param startPosition
-	 *            °á°ú °¡Á®¿Ã °¹¼ö
+	 *            ê²°ê³¼ ê°€ì ¸ì˜¬ ê°¯ìˆ˜
 	 * @param returnCount
-	 *            °á°ú °¡Á®¿Ã °¹¼ö
+	 *            ê²°ê³¼ ê°€ì ¸ì˜¬ ê°¯ìˆ˜
 	 */
 	public void setReturnRange(int startPosition, int returnCount) {
 		this.startPosition = startPosition;
@@ -85,98 +85,98 @@ public class QueryParameter {
 	}
 
 	/**
-	 * °Ë»ö °á°ú¸¦ °¡Á®¿Ã À§Ä¡. 0 ºÎÅÍ ½ÃÀÛ
+	 * ê²€ìƒ‰ ê²°ê³¼ë¥¼ ê°€ì ¸ì˜¬ ìœ„ì¹˜. 0 ë¶€í„° ì‹œì‘
 	 * 
-	 * @return °Ë»ö °á°ú¸¦ °¡Á®¿Ã À§Ä¡. 0 ºÎÅÍ ½ÃÀÛ
+	 * @return ê²€ìƒ‰ ê²°ê³¼ë¥¼ ê°€ì ¸ì˜¬ ìœ„ì¹˜. 0 ë¶€í„° ì‹œì‘
 	 */
 	public int getStartPosition() {
 		return startPosition;
 	}
 
 	/**
-	 * °á°ú °¡Á®¿Ã °¹¼ö
+	 * ê²°ê³¼ ê°€ì ¸ì˜¬ ê°¯ìˆ˜
 	 * 
-	 * @return °á°ú °¡Á®¿Ã °¹¼ö
+	 * @return ê²°ê³¼ ê°€ì ¸ì˜¬ ê°¯ìˆ˜
 	 */
 	public int getReturnCount() {
 		return returnCount;
 	}
 
 	/**
-	 * ÁúÀÇ Á¶°Ç
+	 * ì§ˆì˜ ì¡°ê±´
 	 * 
-	 * @return ÁúÀÇ Á¶°Ç
+	 * @return ì§ˆì˜ ì¡°ê±´
 	 */
 	public List<QueryPart> getQueries() {
 		return queries;
 	}
 
 	/**
-	 * ÁúÀÇ Á¶°Ç µî·Ï
+	 * ì§ˆì˜ ì¡°ê±´ ë“±ë¡
 	 * 
 	 * @param field
-	 *            ÇÊµå ÀÌ¸§
+	 *            í•„ë“œ ì´ë¦„
 	 * @param value
-	 *            °Ë»ö °ª
+	 *            ê²€ìƒ‰ ê°’
 	 * @param analyzer
-	 *            ºĞ¼®±â
+	 *            ë¶„ì„ê¸°
 	 */
 	public void addQuery(String field, String value, AnalyzerType analyzer) {
 		addQuery(value, value, analyzer, Occur.MUST);
 	}
 
 	/**
-	 * ÁúÀÇ Á¶°Ç µî·Ï
+	 * ì§ˆì˜ ì¡°ê±´ ë“±ë¡
 	 * 
 	 * @param field
-	 *            ÇÊµå ÀÌ¸§
+	 *            í•„ë“œ ì´ë¦„
 	 * @param value
-	 *            °Ë»ö °ª
+	 *            ê²€ìƒ‰ ê°’
 	 * @param analyzer
-	 *            ºĞ¼®±â
+	 *            ë¶„ì„ê¸°
 	 * @param occur
-	 *            °áÇÕ Á¶°Ç
+	 *            ê²°í•© ì¡°ê±´
 	 */
 	public void addQuery(String field, String value, AnalyzerType analyzer, Occur occur) {
 		queries.add(new QueryPart(field, value, analyzer, occur));
 	}
 
 	/**
-	 * ÁúÀÇ Á¶°Ç µî·Ï
+	 * ì§ˆì˜ ì¡°ê±´ ë“±ë¡
 	 * 
 	 * @param query
-	 *            ÁúÀÇ
+	 *            ì§ˆì˜
 	 */
 	public void addQuery(QueryPart query) {
 		queries.add(query);
 	}
 
 	/**
-	 * Á¤·Ä Á¶°Ç
+	 * ì •ë ¬ ì¡°ê±´
 	 * 
 	 * @param fieldName
-	 *            Á¤·Ä ÇÊµå
+	 *            ì •ë ¬ í•„ë“œ
 	 * @param asc
-	 *            true: ¿À¸§Â÷¼ø Á¤·Ä, false: ³»¸²Â÷¼ø Á¤·Ä
+	 *            true: ì˜¤ë¦„ì°¨ìˆœ ì •ë ¬, false: ë‚´ë¦¼ì°¨ìˆœ ì •ë ¬
 	 */
 	public void setSortField(String field, boolean asc) {
 		sortField = new SortField(field, SortField.STRING, asc);
 	}
 
 	/**
-	 * Á¤·Ä Á¶°Ç
+	 * ì •ë ¬ ì¡°ê±´
 	 * 
 	 * @param sortField
-	 *            Á¤·Ä Á¶°Ç
+	 *            ì •ë ¬ ì¡°ê±´
 	 */
 	public void setSortField(SortField sortField) {
 		this.sortField = sortField;
 	}
 
 	/**
-	 * Á¤·Ä Á¶°Ç
+	 * ì •ë ¬ ì¡°ê±´
 	 * 
-	 * @return Á¤·Ä Á¶°Ç
+	 * @return ì •ë ¬ ì¡°ê±´
 	 */
 	public SortField getSortField() {
 		return sortField;

@@ -12,10 +12,10 @@ import org.apache.lucene.analysis.tokenattributes.PositionIncrementAttribute;
 import org.apache.lucene.util.Version;
 import org.junit.Test;
 
-public class ÇüºĞ¼®_TestCase extends TestInit {
+public class í˜•ë¶„ì„_TestCase extends TestInit {
 	@Test
 	public void test() throws IOException {
-		String text = "¾È³çÇÏ¼¼¿ä. ¿©·¯ºĞ, ¹æ°©½À´Ï´Ù. Hello, Has me doing";
+		String text = "ì•ˆë…•í•˜ì„¸ìš”. ì—¬ëŸ¬ë¶„, ë°©ê°‘ìŠµë‹ˆë‹¤. Hello, Has me doing";
 		// Analyzer analyzer = new WhitespaceAnalyzer(Version.LUCENE_35);
 		Analyzer analyzer = new CJKAnalyzer(Version.LUCENE_35);
 		TokenStream tokenStream = analyzer.tokenStream("title", new StringReader(text));

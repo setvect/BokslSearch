@@ -8,13 +8,13 @@ import org.apache.log4j.xml.DOMConfigurator;
 import com.setvect.bokslsearch.engine.config.SearchAppProperty;
 
 /**
- * ¾îÇÃ¸®ÄÉÀÌ¼Ç¿¡ ±âº»ÀûÀÎ ¼³Á¤°ª, ·Î±×¼³Á¤µîÀ» ÇØÁØ´Ù. <br>
+ * ì–´í”Œë¦¬ì¼€ì´ì…˜ì— ê¸°ë³¸ì ì¸ ì„¤ì •ê°’, ë¡œê·¸ì„¤ì •ë“±ì„ í•´ì¤€ë‹¤. <br>
  */
 public class SearchAppBootup {
 	private static final String CONFIG_LOG4J_XML = "/com/setvect/bokslsearch/engine/config/log4j.xml";
 	private static final String CONFIG_CONFIG_PROPERTIES = "/conf/search.config.properties";
 
-	/** ÃÊ±âÈ­ ¿©ºÎ */
+	/** ì´ˆê¸°í™” ì—¬ë¶€ */
 	private static boolean initialize = false;
 
 	public SearchAppBootup() {
@@ -22,12 +22,12 @@ public class SearchAppBootup {
 
 	/**
 	 * com.setvect.bokslsearch.engine.config propertity, log4j, spring,
-	 * hibernate ¼³Á¤ ÃÊ±âÈ­
+	 * hibernate ì„¤ì • ì´ˆê¸°í™”
 	 * 
 	 * @param appHomeDir
-	 *            ÇÁ·Î±×·¥ È¨ µğ·ºÅä¸®
+	 *            í”„ë¡œê·¸ë¨ í™ˆ ë””ë ‰í† ë¦¬
 	 * @param log4jInit
-	 *            Log4j ÃÊ±âÈ­(Å×½ºÆ® ÇÒ¶§ »ç¿ë)
+	 *            Log4j ì´ˆê¸°í™”(í…ŒìŠ¤íŠ¸ í• ë•Œ ì‚¬ìš©)
 	 */
 	public static void bootUp(File appHomeDir, boolean log4jInit) {
 		if (initialize) {
@@ -35,7 +35,7 @@ public class SearchAppBootup {
 			// throw new IllegalStateException("aready initialized!");
 		}
 
-		// ¾îÇÃ¸®ÄÉÀÌ¼Ç È¨ °æ·Î. Log4J ÀúÀå °æ·Î¿¡¼­ »ç¿ë
+		// ì–´í”Œë¦¬ì¼€ì´ì…˜ í™ˆ ê²½ë¡œ. Log4J ì €ì¥ ê²½ë¡œì—ì„œ ì‚¬ìš©
 		System.setProperty("APPLICATION_HOME", appHomeDir.getPath());
 
 		File configFile = new File(appHomeDir, CONFIG_CONFIG_PROPERTIES);

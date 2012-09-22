@@ -6,29 +6,29 @@ import com.setvect.bokslsearch.engine.index.AnalyzerType;
 import com.setvect.common.util.StringUtilAd;
 
 /**
- * ´ÜÀ§ ÁúÀÇ Á¶°Ç<br>
- * ÇÊµå°ª ÀÔ·Â¾øÀÌ value¿¡¼­ Á¶°ÇÀıÀÌ µé¾î°¥ ¼öµµ ÀÖ´Ù.<br>
- * ¿Ö³ÄÇÏ¸é ÇÊµå°ªÀÌ µé¾î°¡¸é µÎ°³ ÀÌ»óÀÇ ÇÊµå·Î Á¶ÇÕµÇ´Â Á¶°ÇÀ» »ç¿ëÇÏÁö ¸øÇÏ±â ¶§¹®ÀÌ´Ù.
+ * ë‹¨ìœ„ ì§ˆì˜ ì¡°ê±´<br>
+ * í•„ë“œê°’ ì…ë ¥ì—†ì´ valueì—ì„œ ì¡°ê±´ì ˆì´ ë“¤ì–´ê°ˆ ìˆ˜ë„ ìˆë‹¤.<br>
+ * ì™œëƒí•˜ë©´ í•„ë“œê°’ì´ ë“¤ì–´ê°€ë©´ ë‘ê°œ ì´ìƒì˜ í•„ë“œë¡œ ì¡°í•©ë˜ëŠ” ì¡°ê±´ì„ ì‚¬ìš©í•˜ì§€ ëª»í•˜ê¸° ë•Œë¬¸ì´ë‹¤.
  */
 public class QueryPart {
-	/** ÇÊµå ÀÌ¸§ */
+	/** í•„ë“œ ì´ë¦„ */
 	private final String field;
-	/** °Ë»ö °ª */
+	/** ê²€ìƒ‰ ê°’ */
 	private final String value;
-	/** ÇüºĞ¼® */
+	/** í˜•ë¶„ì„ */
 	private final AnalyzerType analyzer;
-	/** °áÇÕ Á¶°Ç */
+	/** ê²°í•© ì¡°ê±´ */
 	private final Occur occur;
 
 	/**
 	 * @param field
-	 *            ÇÊµå ÀÌ¸§
+	 *            í•„ë“œ ì´ë¦„
 	 * @param value
-	 *            °Ë»ö °ª
+	 *            ê²€ìƒ‰ ê°’
 	 * @param analyzer
-	 *            ÇüºĞ¼®
+	 *            í˜•ë¶„ì„
 	 * @param occur
-	 *            °áÇÕ Á¶°Ç
+	 *            ê²°í•© ì¡°ê±´
 	 */
 	public QueryPart(String field, String value, AnalyzerType analyzer, Occur occur) {
 		this.field = field;
@@ -38,7 +38,7 @@ public class QueryPart {
 	}
 
 	/**
-	 * ÇÊµå ÀÌ¸§
+	 * í•„ë“œ ì´ë¦„
 	 * 
 	 * @return the field
 	 */
@@ -47,7 +47,7 @@ public class QueryPart {
 	}
 
 	/**
-	 * °Ë»ö °ª
+	 * ê²€ìƒ‰ ê°’
 	 * 
 	 * @return the value
 	 */
@@ -56,7 +56,7 @@ public class QueryPart {
 	}
 
 	/**
-	 * °áÇÕ Á¶°Ç
+	 * ê²°í•© ì¡°ê±´
 	 * 
 	 * @return the occur
 	 */
@@ -65,7 +65,7 @@ public class QueryPart {
 	}
 
 	/**
-	 * ÇüºĞ¼®
+	 * í˜•ë¶„ì„
 	 * 
 	 * @return the analyzer
 	 */
@@ -74,13 +74,13 @@ public class QueryPart {
 	}
 
 	/**
-	 * Lucene°¡ ÀÌÇØÇÏ´Â Á¶°ÇÀı
+	 * Luceneê°€ ì´í•´í•˜ëŠ” ì¡°ê±´ì ˆ
 	 * 
-	 * @return Á¶°ÇÀı
+	 * @return ì¡°ê±´ì ˆ
 	 */
 	public String getClause() {
 		if (StringUtilAd.isEmpty(field)) {
-			// ÇÊµå°ª ÀÔ·Â¾øÀÌ value¿¡¼­ Á¶°ÇÀıÀÌ µé¾î°¥ ¼öµµ ÀÖ´Ù.
+			// í•„ë“œê°’ ì…ë ¥ì—†ì´ valueì—ì„œ ì¡°ê±´ì ˆì´ ë“¤ì–´ê°ˆ ìˆ˜ë„ ìˆë‹¤.
 			return value;
 		}
 		return field + ":" + value;

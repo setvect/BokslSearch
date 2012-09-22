@@ -5,56 +5,56 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * °Ë»ö°á°ú
+ * ê²€ìƒ‰ê²°ê³¼
  */
 public class SearchResult {
-	/** °Ë»öµÈ ¹®¼­ ÃÑ ¼ö */
+	/** ê²€ìƒ‰ëœ ë¬¸ì„œ ì´ ìˆ˜ */
 	private int totalHits;
-	/** Á¶È¸µÈ °á°ú °ª */
+	/** ì¡°íšŒëœ ê²°ê³¼ ê°’ */
 	private List<Map<String, String>> records = new ArrayList<Map<String, String>>();
 
 	/**
-	 * °Ë»öµÈ ¹®¼­ ÃÑ ¼ö
+	 * ê²€ìƒ‰ëœ ë¬¸ì„œ ì´ ìˆ˜
 	 * 
-	 * @return °Ë»öµÈ ¹®¼­ ÃÑ ¼ö
+	 * @return ê²€ìƒ‰ëœ ë¬¸ì„œ ì´ ìˆ˜
 	 */
 	public int getTotalHits() {
 		return totalHits;
 	}
 
 	/**
-	 * °Ë»öµÈ ¹®¼­ ÃÑ ¼ö
+	 * ê²€ìƒ‰ëœ ë¬¸ì„œ ì´ ìˆ˜
 	 * 
 	 * @param totalHits
-	 *            °Ë»öµÈ ¹®¼­ ÃÑ ¼ö
+	 *            ê²€ìƒ‰ëœ ë¬¸ì„œ ì´ ìˆ˜
 	 */
 	public void setTotalHits(int docTotalCount) {
 		this.totalHits = docTotalCount;
 	}
 
 	/**
-	 * ÇöÀç ÆäÀÌÁö¿¡ ÇÑÇÏ¿© °Ë»öµÈ ¹®¼­ ¼ö
+	 * í˜„ì¬ í˜ì´ì§€ì— í•œí•˜ì—¬ ê²€ìƒ‰ëœ ë¬¸ì„œ ìˆ˜
 	 * 
-	 * @return ÇöÀç ÆäÀÌÁö¿¡ ÇÑÇÏ¿© °Ë»öµÈ ¹®¼­ ¼ö
+	 * @return í˜„ì¬ í˜ì´ì§€ì— í•œí•˜ì—¬ ê²€ìƒ‰ëœ ë¬¸ì„œ ìˆ˜
 	 */
 	public int getCurrentHits() {
 		return records.size();
 	}
 
 	/**
-	 * Á¶È¸µÈ °á°ú °ª
+	 * ì¡°íšŒëœ ê²°ê³¼ ê°’
 	 * 
-	 * @return Á¶È¸µÈ °á°ú °ª
+	 * @return ì¡°íšŒëœ ê²°ê³¼ ê°’
 	 */
 	public List<Map<String, String>> getRecords() {
 		return records;
 	}
 
 	/**
-	 * Á¶È¸µÈ °á°ú °ª
+	 * ì¡°íšŒëœ ê²°ê³¼ ê°’
 	 * 
 	 * @param records
-	 *            Á¶È¸µÈ °á°ú °ª
+	 *            ì¡°íšŒëœ ê²°ê³¼ ê°’
 	 */
 	public void addRecord(Map<String, String> record) {
 		this.records.add(record);
@@ -62,7 +62,7 @@ public class SearchResult {
 
 	/**
 	 * @param rowNum
-	 *            Çà ¹øÈ£ 0 ºÎÅÍ ½ÃÀÛ
+	 *            í–‰ ë²ˆí˜¸ 0 ë¶€í„° ì‹œì‘
 	 * @param fieldName
 	 */
 	public String getValue(int rowNum, String fieldName) {
